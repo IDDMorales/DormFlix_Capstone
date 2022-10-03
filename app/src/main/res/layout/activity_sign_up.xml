@@ -152,7 +152,6 @@
         android:id="@+id/already"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="I'm Already a User"
         android:layout_below="@+id/signBtn"
         android:textSize="13dp"
