@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+    <ImageView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@+id/secHead"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/landing" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="50dp"
+        android:layout_centerHorizontal="true"
+
+        android:text="WELCOME BACK!"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/secHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+
+        android:text="Login to Continue."
+
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        />
+
+    <TextView
+        android:id="@+id/hintEmail"
+        android:text="EMAIL"
+        android:layout_below="@id/login"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:paddingLeft="8dp"
+        />
+
+    <EditText
+
+        android:id="@+id/emailAdd"
+        android:layout_width="405dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/hintEmail"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/border"
+        android:paddingLeft="8dp"
+        />
+    <TextView
+        android:id="@+id/hintPass"
+        android:text="Password"
+        android:layout_below="@id/emailAdd"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:paddingLeft="8dp"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="405dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/hintPass"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:background="@drawable/border"
+
+        android:backgroundTint="#D3D3D3"
+        android:paddingLeft="8dp"
+
+        />
+    <TextView
+        android:id="@+id/forgot"
+        android:text="Forgot password?"
+        android:layout_below="@id/btnLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/password"
+        android:paddingRight="8dp"
+        />
+    <Button
+        android:id="@+id/btnLog"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="LOGIN"
+        android:backgroundTint="#4fb398"
+        android:layout_below="@id/password"
+
+        />
+
+</RelativeLayout>

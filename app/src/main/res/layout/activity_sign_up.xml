@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+    <TextView
+        android:id="@+id/headSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE YOUR ACCOUNT"
+
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="50dp"
+        />
+    <ImageView
+        android:id="@+id/signPic"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/signup"
+        android:layout_below="@+id/headSign"
+        />
+    <TextView
+        android:id="@+id/fName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Full Name"
+        android:layout_below="@+id/signPic"
+        android:textSize="13dp"
+        android:paddingLeft="10dp"
+        />
+    <EditText
+        android:id="@+id/editFName"
+        android:layout_width="405dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/fName"
+        android:inputType="textPersonName"
+        android:hint="Enter Full Name"
+        android:paddingLeft="8dp"
+        android:textSize="15dp"
+
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/border"
+        />
+    <TextView
+        android:id="@+id/pNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:layout_below="@+id/editFName"
+        android:textSize="13dp"
+        android:paddingLeft="5dp"
+
+        />
+    <EditText
+        android:id="@+id/editPNum"
+        android:layout_width="405dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/pNum"
+        android:inputType="text|number"
+        android:hint="Enter Phone Number"
+        android:paddingLeft="8dp"
+        android:textSize="15dp"
+
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/border"
+        />
+    <TextView
+        android:id="@+id/eMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Email Address"
+        android:layout_below="@+id/editPNum"
+        android:textSize="13dp"
+        android:paddingLeft="10dp"
+        />
+    <EditText
+        android:id="@+id/editEMail"
+        android:layout_width="405dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/eMail"
+        android:inputType="textEmailAddress"
+        android:hint="Enter EmailAddress"
+        android:paddingLeft="8dp"
+        android:textSize="15dp"
+
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/border"
+        />
+    <TextView
+        android:id="@+id/signPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Password"
+        android:layout_below="@+id/editEMail"
+        android:textSize="13dp"
+        android:paddingLeft="10dp"
+        />
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="405dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/signPass"
+        android:inputType="textPassword"
+        android:hint="Enter Password"
+        android:paddingLeft="8dp"
+        android:textSize="15dp"
+
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/border"
+        />
+    <TextView
+        android:id="@+id/signConPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Confirm Password"
+        android:layout_below="@+id/editPass"
+        android:textSize="13dp"
+        android:paddingLeft="10dp"
+        />
+    <EditText
+        android:id="@+id/editConPass"
+        android:layout_width="405dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/signConPass"
+        android:inputType="textPassword"
+        android:hint="Enter Password"
+        android:paddingLeft="8dp"
+        android:textSize="15dp"
+
+        android:backgroundTint="#D3D3D3"
+        android:background="@drawable/border"
+        />
+
+    <Button
+        android:id="@+id/signBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editConPass"
+        android:text="Sign UP"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#4fb398"
+        />
+    <TextView
+        android:id="@+id/already"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="I'm Already a User"
+        android:layout_below="@+id/signBtn"
+        android:textSize="13dp"
+        android:paddingTop="10dp"
+        android:layout_centerInParent="true"
+        />
+
+
+</RelativeLayout>
