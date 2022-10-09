@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SignUp extends AppCompatActivity {
 
@@ -21,9 +22,17 @@ public class SignUp extends AppCompatActivity {
                 startLogin();
             }
         });
+        TextView tv = findViewById(R.id.txtLogin);
+        tv.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View v) {sLogin();}
+        });
 
+           }
 
-
+    private void sLogin() {
+        Intent intSign = new Intent(this, Login.class);
+        startActivity(intSign);
     }
 
     private void startLogin() {

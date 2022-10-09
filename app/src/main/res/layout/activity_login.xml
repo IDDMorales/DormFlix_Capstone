@@ -90,7 +90,9 @@
         android:layout_alignEnd="@+id/password"
         android:text="Forgot password?"
         android:textSize="12sp"
-        android:fontFamily="@font/poppins_medium" />
+        android:fontFamily="@font/poppins_medium"
+        android:clickable="true"
+        android:textColor="@color/green"/>
 
     <Button
         android:id="@+id/btnLog"
@@ -106,14 +108,28 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/already"
+        android:id="@+id/newUse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnLog"
         android:layout_marginTop="40dp"
         android:layout_centerInParent="true"
         android:fontFamily="@font/poppins_medium"
-        android:text="I'm a new user. Sign Up"
+        android:text="I'm a new user. "
         android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/signTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLog"
+        android:layout_toRightOf="@id/newUse"
+        android:layout_marginTop="40dp"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Sign Up"
+        android:textSize="12dp"
+        android:clickable="true"
+        android:textColor="@color/green"/>
 
 </RelativeLayout>
