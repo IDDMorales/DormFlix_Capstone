@@ -20,7 +20,7 @@
     <ImageView
         android:id="@+id/signPic"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:src="@drawable/signup"
         android:layout_below="@+id/headSign" />
 
@@ -28,87 +28,88 @@
         android:id="@+id/fName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="56dp"
         android:layout_below="@+id/signPic"
-
+        android:fontFamily="@font/poppins_regular"
         android:text="Full Name"
-        android:textSize="13dp"
-        android:paddingLeft="10dp" />
+        android:textSize="14dp" />
     <EditText
         android:id="@+id/editFName"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_below="@id/fName"
+        android:layout_centerInParent="true"
         android:inputType="textPersonName"
         android:hint="Enter Full Name"
-        android:paddingLeft="8dp"
+        android:paddingLeft="12dp"
+        android:fontFamily="@font/poppins_regular"
         android:textSize="15dp"
-
-
         android:background="@drawable/border" />
 
     <TextView
         android:id="@+id/pNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone Number"
         android:layout_below="@+id/editFName"
-        android:textSize="13dp"
-        android:paddingLeft="5dp" />
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Phone Number"
+        android:textSize="14dp" />
     <EditText
         android:id="@+id/editPNum"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_below="@id/pNum"
+        android:layout_centerInParent="true"
         android:inputType="text|number"
         android:hint="Enter Phone Number"
-        android:paddingLeft="8dp"
+        android:paddingLeft="10dp"
         android:textSize="15dp"
-
-
         android:background="@drawable/border" />
 
     <TextView
         android:id="@+id/eMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Email Address"
         android:layout_below="@+id/editPNum"
-        android:textSize="13dp"
-        android:paddingLeft="10dp" />
+        android:textSize="14dp" />
     <EditText
         android:id="@+id/editEMail"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_below="@id/eMail"
+        android:layout_centerInParent="true"
         android:inputType="textEmailAddress"
-        android:hint="Enter EmailAddress"
-        android:paddingLeft="8dp"
+        android:hint="Enter Email Address"
+        android:paddingLeft="10dp"
         android:textSize="15dp"
-
-
         android:background="@drawable/border" />
 
     <TextView
         android:id="@+id/signPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="Password"
         android:layout_below="@+id/editEMail"
-        android:textSize="13dp"
-        android:paddingLeft="10dp" />
+        android:textSize="14dp" />
     <EditText
         android:id="@+id/editPass"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_below="@id/signPass"
+        android:layout_centerInParent="true"
         android:inputType="textPassword"
         android:hint="Enter Password"
-        android:paddingLeft="8dp"
+        android:paddingLeft="10dp"
         android:textSize="15dp"
-
-
         android:background="@drawable/border" />
 
     <TextView
@@ -116,20 +117,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editPass"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="Confirm Password"
-        android:textSize="13dp"
-        android:paddingLeft="10dp" />
+        android:textSize="14dp" />
     <EditText
         android:id="@+id/editConPass"
-        android:layout_width="405dp"
-        android:layout_height="35dp"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
         android:layout_below="@id/signConPass"
+        android:layout_centerInParent="true"
         android:inputType="textPassword"
-        android:hint="Enter Password"
+        android:hint="Retype Password"
         android:paddingLeft="10dp"
         android:textSize="15dp"
-
-
         android:background="@drawable/border" />
 
     <Button
@@ -164,6 +166,7 @@
         android:layout_toRightOf="@id/already1"
         android:layout_centerInParent="true"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
         android:text=" Login"
         android:clickable="true"
         android:textSize="14sp"
