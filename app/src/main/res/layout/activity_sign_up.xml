@@ -43,7 +43,7 @@
         android:paddingLeft="8dp"
         android:textSize="15dp"
 
-        android:backgroundTint="#D3D3D3"
+
         android:background="@drawable/border" />
 
     <TextView
@@ -64,7 +64,7 @@
         android:paddingLeft="8dp"
         android:textSize="15dp"
 
-        android:backgroundTint="#D3D3D3"
+
         android:background="@drawable/border" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:paddingLeft="8dp"
         android:textSize="15dp"
 
-        android:backgroundTint="#D3D3D3"
+
         android:background="@drawable/border" />
 
     <TextView
@@ -108,7 +108,7 @@
         android:paddingLeft="8dp"
         android:textSize="15dp"
 
-        android:backgroundTint="#D3D3D3"
+
         android:background="@drawable/border" />
 
     <TextView
@@ -129,7 +129,7 @@
         android:paddingLeft="10dp"
         android:textSize="15dp"
 
-        android:backgroundTint="#D3D3D3"
+
         android:background="@drawable/border" />
 
     <Button

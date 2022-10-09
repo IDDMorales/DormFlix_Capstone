@@ -45,19 +45,20 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Email"
         android:textSize="14dp" />
+
     <EditText
         android:id="@+id/emailAdd"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_below="@id/hintEmail"
         android:layout_centerInParent="true"
-        android:inputType="textEmailAddress"
-        android:hint="Enter Email Address"
-        android:backgroundTint="@color/grey"
         android:background="@drawable/border"
+
         android:fontFamily="@font/poppins_regular"
-        android:textSize="16sp"
-        android:paddingLeft="10dp" />
+        android:hint="Enter Email Address"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/hintPass"
@@ -68,19 +69,20 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Password"
         android:paddingTop="10dp" />
+
     <EditText
         android:id="@+id/password"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_below="@id/hintPass"
         android:layout_centerInParent="true"
-        android:inputType="textPassword"
-        android:hint="Enter Password"
         android:background="@drawable/border"
-        android:backgroundTint="@color/grey"
+
         android:fontFamily="@font/poppins_regular"
-        android:textSize="16sp"
-        android:paddingLeft="10dp" />
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/forgot"
