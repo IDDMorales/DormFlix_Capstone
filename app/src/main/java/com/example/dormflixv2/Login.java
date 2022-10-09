@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
@@ -30,8 +31,21 @@ public class Login extends AppCompatActivity {
                 sMainHome();
             }
         });
+        ImageButton ibLog = findViewById(R.id.ibLog);
+        ibLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeLog();
+            }
+        });
+
+
         /*need one more for forgot password*/
 
+    }
+
+    private void closeLog() {
+        finish();
     }
 
     private void sMainHome(){
