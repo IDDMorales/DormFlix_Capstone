@@ -5,34 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp">
+
     <TextView
         android:id="@+id/headSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CREATE YOUR ACCOUNT"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Create your Account"
+        android:textSize="20dp"
+        android:textColor="@color/dark"
+        android:layout_centerHorizontal="true" />
 
-        android:textSize="25dp"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="50dp"
-        />
     <ImageView
         android:id="@+id/signPic"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:src="@drawable/signup"
-        android:layout_below="@+id/headSign"
-        />
+        android:layout_below="@+id/headSign" />
+
     <TextView
         android:id="@+id/fName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/signPic"
 
         android:text="Full Name"
-        android:layout_below="@+id/signPic"
         android:textSize="13dp"
-        android:paddingLeft="10dp"
-        />
+        android:paddingLeft="10dp" />
     <EditText
         android:id="@+id/editFName"
         android:layout_width="405dp"
@@ -44,8 +44,8 @@
         android:textSize="15dp"
 
         android:backgroundTint="#D3D3D3"
-        android:background="@drawable/border"
-        />
+        android:background="@drawable/border" />
+
     <TextView
         android:id="@+id/pNum"
         android:layout_width="wrap_content"
@@ -53,9 +53,7 @@
         android:text="Phone Number"
         android:layout_below="@+id/editFName"
         android:textSize="13dp"
-        android:paddingLeft="5dp"
-
-        />
+        android:paddingLeft="5dp" />
     <EditText
         android:id="@+id/editPNum"
         android:layout_width="405dp"
@@ -67,8 +65,8 @@
         android:textSize="15dp"
 
         android:backgroundTint="#D3D3D3"
-        android:background="@drawable/border"
-        />
+        android:background="@drawable/border" />
+
     <TextView
         android:id="@+id/eMail"
         android:layout_width="wrap_content"
@@ -77,8 +75,7 @@
         android:text="Email Address"
         android:layout_below="@+id/editPNum"
         android:textSize="13dp"
-        android:paddingLeft="10dp"
-        />
+        android:paddingLeft="10dp" />
     <EditText
         android:id="@+id/editEMail"
         android:layout_width="405dp"
@@ -90,8 +87,8 @@
         android:textSize="15dp"
 
         android:backgroundTint="#D3D3D3"
-        android:background="@drawable/border"
-        />
+        android:background="@drawable/border" />
+
     <TextView
         android:id="@+id/signPass"
         android:layout_width="wrap_content"
@@ -100,8 +97,7 @@
         android:text="Password"
         android:layout_below="@+id/editEMail"
         android:textSize="13dp"
-        android:paddingLeft="10dp"
-        />
+        android:paddingLeft="10dp" />
     <EditText
         android:id="@+id/editPass"
         android:layout_width="405dp"
@@ -113,18 +109,16 @@
         android:textSize="15dp"
 
         android:backgroundTint="#D3D3D3"
-        android:background="@drawable/border"
-        />
+        android:background="@drawable/border" />
+
     <TextView
         android:id="@+id/signConPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Confirm Password"
         android:layout_below="@+id/editPass"
+        android:text="Confirm Password"
         android:textSize="13dp"
-        android:paddingLeft="10dp"
-        />
+        android:paddingLeft="10dp" />
     <EditText
         android:id="@+id/editConPass"
         android:layout_width="405dp"
@@ -132,32 +126,34 @@
         android:layout_below="@id/signConPass"
         android:inputType="textPassword"
         android:hint="Enter Password"
-        android:paddingLeft="8dp"
+        android:paddingLeft="10dp"
         android:textSize="15dp"
 
         android:backgroundTint="#D3D3D3"
-        android:background="@drawable/border"
-        />
+        android:background="@drawable/border" />
 
     <Button
         android:id="@+id/signBtn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
         android:layout_below="@id/editConPass"
-        android:text="Sign UP"
         android:layout_centerInParent="true"
-        android:backgroundTint="#4fb398"
-        />
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/already"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'm Already a User"
         android:layout_below="@+id/signBtn"
-        android:textSize="13dp"
-        android:paddingTop="10dp"
         android:layout_centerInParent="true"
-        />
-
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="I'm already a user. Login"
+        android:textSize="14sp" />
 
 </RelativeLayout>
