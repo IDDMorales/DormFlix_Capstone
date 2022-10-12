@@ -103,17 +103,18 @@
         android:text="Password"
         android:layout_below="@+id/editEMail"
         android:textSize="14dp" />
+
     <EditText
         android:id="@+id/editPass"
         android:layout_width="300dp"
         android:layout_height="44dp"
         android:layout_below="@id/signPass"
         android:layout_centerInParent="true"
-        android:inputType="textPassword"
+        android:background="@drawable/border"
         android:hint="Enter Password"
+        android:inputType="textPassword"
         android:paddingLeft="10dp"
-        android:textSize="15dp"
-        android:background="@drawable/border" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/signConPass"
@@ -167,14 +168,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signBtn"
-        android:layout_toRightOf="@id/already1"
         android:layout_centerInParent="true"
         android:layout_marginTop="40dp"
+        android:layout_toRightOf="@id/already1"
+        android:clickable="true"
         android:fontFamily="@font/poppins_medium"
         android:text=" Login"
-        android:clickable="true"
-        android:textSize="14sp"
-        android:textColor="@color/green"/>
+        android:textColor="@color/green"
+        android:textSize="14sp" />
     
     <ImageButton
         android:id="@+id/ibSign"
