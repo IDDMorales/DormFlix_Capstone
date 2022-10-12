@@ -8,21 +8,43 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.EditText;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 public class SignUp extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+      EditText fullname = findViewById(R.id.editFName);
+      EditText email = findViewById(R.id.editEMail);
+      EditText phone = findViewById(R.id.editPNum);
+      EditText password = findViewById(R.id.editPass);
+      EditText conPassword = findViewById(R.id.editConPass) ;
+      mAuth = FirebaseAuth.getInstance();
+
+
+
         Button btnSign = findViewById(R.id.signBtn);
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startLogin();
+
+
+
+
             }
         });
+
+
         TextView tv = findViewById(R.id.txtLogin);
         tv.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -36,6 +58,8 @@ public class SignUp extends AppCompatActivity {
             }
         });
            }
+
+
 
     private void Close() {
         finish();

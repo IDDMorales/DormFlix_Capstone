@@ -33,18 +33,19 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Full Name"
         android:textSize="14dp" />
+
     <EditText
         android:id="@+id/editFName"
         android:layout_width="300dp"
         android:layout_height="44dp"
         android:layout_below="@id/fName"
         android:layout_centerInParent="true"
-        android:inputType="textPersonName"
-        android:hint="Enter Full Name"
-        android:paddingLeft="12dp"
+        android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
-        android:textSize="15dp"
-        android:background="@drawable/border" />
+        android:hint="Enter Full Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="12dp"
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/pNum"
@@ -56,17 +57,18 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Phone Number"
         android:textSize="14dp" />
+
     <EditText
         android:id="@+id/editPNum"
         android:layout_width="300dp"
         android:layout_height="44dp"
         android:layout_below="@id/pNum"
         android:layout_centerInParent="true"
-        android:inputType="text|number"
+        android:background="@drawable/border"
         android:hint="Enter Phone Number"
+        android:inputType="text|number"
         android:paddingLeft="10dp"
-        android:textSize="15dp"
-        android:background="@drawable/border" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/eMail"
@@ -78,17 +80,18 @@
         android:text="Email Address"
         android:layout_below="@+id/editPNum"
         android:textSize="14dp" />
+
     <EditText
         android:id="@+id/editEMail"
         android:layout_width="300dp"
         android:layout_height="44dp"
         android:layout_below="@id/eMail"
         android:layout_centerInParent="true"
-        android:inputType="textEmailAddress"
+        android:background="@drawable/border"
         android:hint="Enter Email Address"
+        android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
-        android:textSize="15dp"
-        android:background="@drawable/border" />
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/signPass"
@@ -122,17 +125,18 @@
         android:fontFamily="@font/poppins_medium"
         android:text="Confirm Password"
         android:textSize="14dp" />
+
     <EditText
         android:id="@+id/editConPass"
         android:layout_width="300dp"
         android:layout_height="44dp"
         android:layout_below="@id/signConPass"
         android:layout_centerInParent="true"
-        android:inputType="textPassword"
+        android:background="@drawable/border"
         android:hint="Retype Password"
+        android:inputType="textPassword"
         android:paddingLeft="10dp"
-        android:textSize="15dp"
-        android:background="@drawable/border" />
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/signBtn"

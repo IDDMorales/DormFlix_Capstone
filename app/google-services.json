@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "17362812875",
+    "firebase_url": "https://auth-4209d-default-rtdb.firebaseio.com",
+    "project_id": "auth-4209d",
+    "storage_bucket": "auth-4209d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17362812875:android:3737ebe730672385df404e",
+        "android_client_info": {
+          "package_name": "com.example.dormflixv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17362812875-rv833hjf1qj019bpc567s0q79vjovohv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dormflixv2",
+            "certificate_hash": "d7d5a7bb1631470431a794722e50374c55e0dccb"
+          }
+        },
+        {
+          "client_id": "17362812875-drhu7auibeik8ib1o85ulpr3dlam2pc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIWLY_zKv1pPVpqDbHIGDEYxhw4x0JM-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17362812875-drhu7auibeik8ib1o85ulpr3dlam2pc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
