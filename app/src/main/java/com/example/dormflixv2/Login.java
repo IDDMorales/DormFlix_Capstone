@@ -45,8 +45,8 @@ public class Login extends AppCompatActivity {
                     mPassword.setError("Password is Required");
                     return;
                 }
-                if(password.length() <8 ){
-                    mPassword.setError("Password Must be >= 8 characters");
+                if(password.length() <8 || password.length() >12){
+                    mPassword.setError("Password Must be 8 -12 characters");
                     return;
                 }
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(Login.this, "Login Successfully !", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), mainHome.class));
 
                         }else{
                             Toast.makeText(Login.this, "Error !" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -72,6 +72,8 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),SignUp.class));
             }
         });
+
+        //first try of linking
         ImageButton ibLog = findViewById(R.id.ibLog);
         ibLog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +88,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void closeLog() {
-        finish();
+        Intent close = new Intent(this, MainActivity.class);
+        startActivity(close);
     }
 
     private void sMainHome(){

@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class splash extends AppCompatActivity {
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if(user == null){
-            startActivity(new Intent(this, splash.class));
-        }
-        else {
-            startActivity(new Intent(getApplicationContext(),mainHome.class));
-        }
-    }
 
     private void openLogin() {
         Intent intent1 = new Intent(this, Login.class);
-            startActivity(intent1);
+        startActivity(intent1);
     }
 
     private void openSignUp() {

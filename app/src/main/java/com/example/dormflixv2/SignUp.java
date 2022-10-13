@@ -28,7 +28,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
+        //firebase
         mFullName = findViewById(R.id.editFName);
         mPhone = findViewById(R.id.editPNum);
         mEmail = findViewById(R.id.editEMail);
@@ -38,10 +38,8 @@ public class SignUp extends AppCompatActivity {
         TextView tv = findViewById(R.id.txtLogin);
         Button btnSign = findViewById(R.id.signBtn);
 
-        if(mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
+
+
 
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +55,8 @@ public class SignUp extends AppCompatActivity {
                     mPassword.setError("Password is Required");
                     return;
                 }
-                if(password.length() <8 ){
-                    mPassword.setError("Password Must be >= 8 characters");
+                if(password.length() <8 || password.length() >12 ){
+                    mPassword.setError("Password Must be 8-12 characters");
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -66,7 +64,7 @@ public class SignUp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Login.class));
 
                         }else{
                             Toast.makeText(SignUp.this, "Error !" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
