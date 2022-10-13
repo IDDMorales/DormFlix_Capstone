@@ -90,7 +90,7 @@ public class SignUp extends AppCompatActivity {
                             userID = mAuth.getCurrentUser().getUid();
                             DocumentReference documentReference = db.collection("Users").document(userID);
                             Map<String,Object> user = new HashMap<>();
-                            user.put("fname",fullname);
+                            user.put("fname", fullname);
                             user.put("email", email);
                             user.put("phone", phone);
                             user.put("pass", password);

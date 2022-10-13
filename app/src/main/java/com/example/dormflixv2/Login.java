@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         forgotPass = findViewById(R.id.forgot);
 
+
         Button btnLog = findViewById(R.id.btnLog);
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,49 +90,19 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-        /*need one more for forgot password*/
         forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText reset = new EditText(v.getContext());
-                AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
-                passwordResetDialog.setTitle("Reset Passowrd ?");
-                passwordResetDialog.setMessage("Enter Your Email To Received Reset Link");
-                passwordResetDialog.setView(reset);
-
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        String email = reset.getText().toString();
-                        mAuth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(Login.this, "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Login.this, "Error! Reset Link is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-                    }
-                });
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
+                openForgot();
             }
-        });{
+        });
 
-        }
     }
 
+    private void openForgot() {
+        Intent openFor = new Intent(this, forgot.class);
+        startActivity(openFor);
+    }
     private void closeLog() {
         Intent close = new Intent(this, splash.class);
         startActivity(close);
