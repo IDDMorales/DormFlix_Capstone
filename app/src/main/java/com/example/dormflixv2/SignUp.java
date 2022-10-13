@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,12 +16,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.core.Tag;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -31,6 +31,7 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
     public static final String TAG = "TAG";
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
     EditText mFullName,mEmail,mPassword,mPhone, mConPass;
     String userID;
 
@@ -46,11 +47,9 @@ public class SignUp extends AppCompatActivity {
         mPassword = findViewById(R.id.editPass);
         mConPass = findViewById(R.id.editConPass);
         mAuth = FirebaseAuth.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
         TextView tv = findViewById(R.id.txtLogin);
         Button btnSign = findViewById(R.id.signBtn);
-
-
 
 
         btnSign.setOnClickListener(new View.OnClickListener() {
@@ -60,18 +59,26 @@ public class SignUp extends AppCompatActivity {
                 String password = mPassword.getText().toString().trim();
                 String fullname = mFullName.getText().toString().trim();
                 String phone = mPhone.getText().toString().trim();
-                String Confirmpass = mConPass.getText().toString().trim();
+                String confirmPass = mConPass.getText().toString().trim();
 
-                if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Email is Required");
+                if(email.isEmpty()) {
+                    mEmail.setError("Field Can't Be empty");
                     return;
                 }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    mEmail.setError("Enter Valid Email");
+                }
+
                 if(TextUtils.isEmpty(password)){
                     mPassword.setError("Password is Required");
                     return;
                 }
                 if(password.length() <8 || password.length() >12 ){
                     mPassword.setError("Password Must be 8-12 characters");
+                    return;
+                }
+                if(!confirmPass.equals(password)){
+                    mConPass.setError("Password does not match");
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -86,10 +93,16 @@ public class SignUp extends AppCompatActivity {
                             user.put("fname",fullname);
                             user.put("email", email);
                             user.put("phone", phone);
+                            user.put("pass", password);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Log.d(TAG,"OnSuccess: user Profile is created for "+ userID);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG,"onFailure: " + e.toString());
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(), Login.class));
@@ -118,9 +131,7 @@ public class SignUp extends AppCompatActivity {
                 Close();
             }
         });
-           }
-
-
+    }
 
     private void Close() {
         finish();

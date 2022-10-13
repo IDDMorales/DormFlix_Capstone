@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    sMainHome();
             }
         });
 
@@ -133,7 +133,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void closeLog() {
-        Intent close = new Intent(this, MainActivity.class);
+        Intent close = new Intent(this, splash.class);
         startActivity(close);
     }
 
