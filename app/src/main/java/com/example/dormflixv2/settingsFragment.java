@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -37,8 +38,8 @@ public class settingsFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         super.onViewCreated(view, savedInstanceState);
 
-        Button btnLogOut = view.findViewById(R.id.btnLogOut);
-        btnLogOut.setOnClickListener(View -> {
+        TextView txtlogout = view.findViewById(R.id.txtlogout);
+        txtlogout.setOnClickListener(View -> {
             mAuth.signOut();
             Intent fragL= new Intent(getActivity(), Login.class);
             startActivity(fragL);

@@ -19,63 +19,80 @@
 
    <TextView
        android:id="@+id/editprofile"
-       android:layout_width="100dp"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@id/header"
-       android:layout_marginLeft="70dp"
+       android:layout_centerInParent="true"
        android:layout_marginTop="262dp"
+       android:clickable="true"
+       android:drawableStart="@drawable/sprofile"
+       android:drawablePadding="20dp"
        android:fontFamily="@font/poppins_regular"
+       android:paddingStart="30dp"
        android:text="Edit Profile"
        android:textColor="@color/dark"
-       android:textSize="14dp" />
+       android:textSize="20dp"
+       android:background="@drawable/border"/>
 
    <TextView
        android:id="@+id/payment"
-       android:layout_width="100dp"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@id/editprofile"
-       android:layout_marginLeft="70dp"
-       android:layout_marginTop="23dp"
+       android:paddingStart="30dp"
+       android:drawablePadding="20dp"
+       android:drawableStart="@drawable/swallet"
        android:fontFamily="@font/poppins_regular"
        android:textColor="@color/dark"
        android:text="Payment"
-       android:textSize="14dp" />
+       android:textSize="20dp"
+       android:clickable="true"
+       android:background="@drawable/border"/>
 
    <TextView
        android:id="@+id/notifications"
-       android:layout_width="100dp"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@id/payment"
-       android:layout_marginLeft="70dp"
-       android:layout_marginTop="23dp"
+       android:paddingStart="30dp"
+       android:drawablePadding="20dp"
+       android:drawableStart="@drawable/snotification"
        android:fontFamily="@font/poppins_regular"
        android:textColor="@color/dark"
        android:text="Notifications"
-       android:textSize="14dp" />
+       android:textSize="20dp"
+       android:clickable="true"
+       android:background="@drawable/border"/>
 
    <TextView
        android:id="@+id/reportfeedback"
-       android:layout_width="150dp"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@id/notifications"
-       android:layout_marginLeft="70dp"
-       android:layout_marginTop="23dp"
+       android:paddingStart="30dp"
+       android:drawablePadding="20dp"
+       android:drawableStart="@drawable/sticket"
        android:fontFamily="@font/poppins_regular"
        android:textColor="@color/dark"
        android:text="Report/Feedback"
-       android:textSize="14dp" />
+       android:textSize="20dp"
+       android:clickable="true"
+       android:background="@drawable/border"/>
 
    <TextView
-       android:id="@+id/logout"
-       android:layout_width="150dp"
+       android:id="@+id/txtlogout"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@id/reportfeedback"
-       android:layout_marginLeft="70dp"
-       android:layout_marginTop="23dp"
+       android:paddingStart="30dp"
+       android:drawablePadding="20dp"
+       android:drawableStart="@drawable/slogout"
        android:fontFamily="@font/poppins_regular"
        android:textColor="@color/red"
        android:text="Logout"
-       android:textSize="14dp" />
+       android:textSize="20sp"
+       android:clickable="true"
+       android:background="@drawable/border"/>
 
    <TextView
        android:id="@+id/name"
@@ -109,7 +126,7 @@
        android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
        android:layout_toLeftOf="@id/header"
        android:layout_marginTop="32dp"
-       android:layout_marginRight="60dp"
+       android:layout_marginRight="100dp"
        />
 
    <View
@@ -147,49 +164,7 @@
        android:layout_marginLeft="225dp"
        android:src="@drawable/filecheck" />
 
-   <ImageView
-       android:id="@+id/imageView4"
-       android:layout_width="32dp"
-       android:layout_height="25dp"
-       android:layout_below="@id/header"
-       android:layout_marginLeft="27dp"
-       android:layout_marginTop="448dp"
-       android:src="@drawable/slogout" />
 
-   <ImageView
-       android:id="@+id/imageView5"
-       android:layout_width="32dp"
-       android:layout_height="25dp"
-       android:layout_below="@id/header"
-       android:layout_marginLeft="27dp"
-       android:layout_marginTop="354dp"
-       android:src="@drawable/snotification" />
 
-   <ImageView
-       android:id="@+id/imageView6"
-       android:layout_width="32dp"
-       android:layout_height="25dp"
-       android:layout_below="@id/header"
-       android:layout_marginLeft="27dp"
-       android:layout_marginTop="262dp"
-       android:src="@drawable/sprofile" />
-
-   <ImageView
-       android:id="@+id/imageView7"
-       android:layout_width="32dp"
-       android:layout_height="25dp"
-       android:layout_below="@id/header"
-       android:layout_marginLeft="27dp"
-       android:layout_marginTop="400dp"
-       android:src="@drawable/sticket" />
-
-   <ImageView
-       android:id="@+id/imageView8"
-       android:layout_width="32dp"
-       android:layout_height="25dp"
-       android:layout_below="@id/header"
-       android:layout_marginLeft="27dp"
-       android:layout_marginTop="307dp"
-       android:src="@drawable/swallet" />
 
 </RelativeLayout>

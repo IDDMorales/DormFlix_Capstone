@@ -3,11 +3,13 @@ package com.example.dormflixv2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +22,7 @@ import java.util.regex.Pattern;
 public class forgot extends AppCompatActivity {
     EditText emailEditText;
     Button resetPasswordButton;
+    ImageButton ibSign;
     private FirebaseAuth mAuth;
 
     @Override
@@ -29,6 +32,7 @@ public class forgot extends AppCompatActivity {
         //gian part
         emailEditText = findViewById(R.id.Pforgot);
         resetPasswordButton = findViewById(R.id.signForgot);
+        ibSign = findViewById(R.id.ibSign);
         mAuth = FirebaseAuth.getInstance();
 
         resetPasswordButton.setOnClickListener(new View.OnClickListener() {
@@ -38,10 +42,22 @@ public class forgot extends AppCompatActivity {
             }
         });
 
+        ibSign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                back();
+            }
+        });
+
 
 
 
     }
+
+    private void back() {
+        finish();
+    }
+
 
     private void resetpassword() {
         String email = emailEditText.getText().toString().trim();

@@ -123,7 +123,7 @@ public class SignUp extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener(){
             @Override
         public void onClick(View v) {
-
+                sLogin();
             }
         });
         ImageButton ibLog = findViewById(R.id.ibSign);

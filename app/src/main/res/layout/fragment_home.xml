@@ -6,26 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".homeFragment">
 
+    <ImageView
+        android:id="@+id/pfp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/userprofile" />
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/pfp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Welcome."
+        android:textSize="20dp"
+        android:textColor="@color/dark"
+        android:alpha=".50"
+        />
+    <TextView
+        android:id="@+id/pName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/welcome"
+        android:layout_toEndOf="@id/pfp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Aljohn Eclavia"
+        android:textSize="20dp"
+        android:textColor="@color/dark"
+        />
 
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toEndOf="@id/pName"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/ic_baseline_circle_notifications_24" />
     <TextView
         android:id="@+id/txtHome"
+        android:layout_below="@id/pfp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Find the Dorm"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textColor="@color/dark"
-        android:layout_marginStart="10dp" />
+        android:layout_marginStart="30dp" />
     <TextView
         android:id="@+id/txtHome2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="30dp"
         android:layout_below="@id/txtHome"
         android:fontFamily="@font/poppins_medium"
-        android:text="room for you"
-        android:textSize="20dp"
+        android:text="Room for you"
+        android:textSize="25dp"
         android:textColor="@color/dark"
         />
     <EditText
