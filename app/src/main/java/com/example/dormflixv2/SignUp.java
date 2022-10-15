@@ -32,7 +32,7 @@ public class SignUp extends AppCompatActivity {
     public static final String TAG = "TAG";
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    EditText mFullName,mEmail,mPassword,mPhone, mConPass;
+    EditText mFullName,mEmail,mPassword,mPhone, mConPass, vPass;
     String userID;
 
 
@@ -50,6 +50,8 @@ public class SignUp extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         TextView tv = findViewById(R.id.txtLogin);
         Button btnSign = findViewById(R.id.signBtn);
+        vPass = findViewById(R.id.editPass);
+
 
 
         btnSign.setOnClickListener(new View.OnClickListener() {

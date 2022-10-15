@@ -68,32 +68,41 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Password"
         android:paddingTop="10dp" />
-
-    <EditText
-        android:id="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwords"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_below="@id/hintPass"
         android:layout_centerInParent="true"
-
+        app:passwordToggleEnabled="true"
+        app:boxStrokeWidth="0dp"
+        >
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
         android:hint="Enter Password"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textSize="16sp" />
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/forgot"
-        android:layout_below="@id/password"
+        android:layout_below="@id/passwords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/password"
+        android:layout_alignEnd="@+id/passwords"
         android:text="Forgot password?"
         android:textSize="14sp"
         android:fontFamily="@font/poppins_medium"
         android:clickable="true"
-        android:textColor="@color/green"/>
+        android:textColor="@color/green"
+        />
 
     <Button
         android:id="@+id/btnLog"

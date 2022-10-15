@@ -103,7 +103,15 @@
         android:text="Password"
         android:layout_below="@+id/editEMail"
         android:textSize="14dp" />
-
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editpass"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/signPass"
+        android:layout_centerInParent="true"
+        app:passwordToggleEnabled="true"
+        app:boxStrokeWidth="0dp"
+        >
     <EditText
         android:id="@+id/editPass"
         android:layout_width="300dp"
@@ -111,21 +119,34 @@
         android:layout_below="@id/signPass"
         android:layout_centerInParent="true"
         android:background="@drawable/border"
+
         android:hint="Enter Password"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
+        android:longClickable="false"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
         android:textSize="15dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/signConPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editPass"
+        android:layout_below="@+id/editpass"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Confirm Password"
         android:textSize="14dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editconPass"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/signConPass"
+        android:layout_centerInParent="true"
+        app:passwordToggleEnabled="true"
+        app:boxStrokeWidth="0dp"
+        >
 
     <EditText
         android:id="@+id/editConPass"
@@ -134,16 +155,20 @@
         android:layout_below="@id/signConPass"
         android:layout_centerInParent="true"
         android:background="@drawable/border"
-        android:hint="Retype Password"
+
+        android:hint="Confirm Password"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textSize="15dp" />
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:textSize="15dp"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/signBtn"
         android:layout_width="290dp"
         android:layout_height="55dp"
-        android:layout_below="@id/editConPass"
+        android:layout_below="@id/editconPass"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/green"

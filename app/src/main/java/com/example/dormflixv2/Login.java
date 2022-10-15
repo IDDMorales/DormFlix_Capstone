@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +28,8 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText mPassword,mEmail;
     TextView forgotPass;
+    Boolean passwordVisible;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class Login extends AppCompatActivity {
         mEmail = findViewById(R.id.emailAdd);
         mAuth = FirebaseAuth.getInstance();
         forgotPass = findViewById(R.id.forgot);
+
 
 
         Button btnLog = findViewById(R.id.btnLog);
