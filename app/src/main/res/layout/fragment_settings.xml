@@ -1,14 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".settingsFragment">
 
-   <Button
-       android:id="@+id/btnLogOut"
+   <TextView
+       android:id="@+id/header"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="Logout"/>
+       android:layout_marginTop="30dp"
+       android:layout_centerHorizontal="true"
+       android:fontFamily="@font/poppins_semibold"
+       android:text="Settings"
+       android:textColor="@color/dark"
+       android:textSize="22sp" />
+
+   <TextView
+       android:id="@+id/editprofile"
+       android:layout_width="100dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="70dp"
+       android:layout_marginTop="262dp"
+       android:fontFamily="@font/poppins_regular"
+       android:text="Edit Profile"
+       android:textColor="@color/dark"
+       android:textSize="14dp" />
+
+   <TextView
+       android:id="@+id/payment"
+       android:layout_width="100dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/editprofile"
+       android:layout_marginLeft="70dp"
+       android:layout_marginTop="23dp"
+       android:fontFamily="@font/poppins_regular"
+       android:textColor="@color/dark"
+       android:text="Payment"
+       android:textSize="14dp" />
+
+   <TextView
+       android:id="@+id/notifications"
+       android:layout_width="100dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/payment"
+       android:layout_marginLeft="70dp"
+       android:layout_marginTop="23dp"
+       android:fontFamily="@font/poppins_regular"
+       android:textColor="@color/dark"
+       android:text="Notifications"
+       android:textSize="14dp" />
+
+   <TextView
+       android:id="@+id/reportfeedback"
+       android:layout_width="150dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/notifications"
+       android:layout_marginLeft="70dp"
+       android:layout_marginTop="23dp"
+       android:fontFamily="@font/poppins_regular"
+       android:textColor="@color/dark"
+       android:text="Report/Feedback"
+       android:textSize="14dp" />
+
+   <TextView
+       android:id="@+id/logout"
+       android:layout_width="150dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/reportfeedback"
+       android:layout_marginLeft="70dp"
+       android:layout_marginTop="23dp"
+       android:fontFamily="@font/poppins_regular"
+       android:textColor="@color/red"
+       android:text="Logout"
+       android:textSize="14dp" />
+
+   <TextView
+       android:id="@+id/name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/imageView"
+       android:layout_marginLeft="137dp"
+       android:layout_marginTop="8dp"
+       android:fontFamily="@font/poppins_regular"
+       android:text="Alejo Dela Cruz"
+       android:textColor="@color/dark"
+       android:textSize="18dp"
+       android:textStyle="bold" />
+
+   <TextView
+       android:id="@+id/sEmail"
+       android:layout_width="200dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="112dp"
+       android:layout_marginTop="178dp"
+       android:fontFamily="@font/poppins_regular"
+       android:text="alejo.delacruz@gmail.com"
+       android:textColor="@color/dark"
+       android:textSize="14dp" />
+
+   <ImageButton
+       android:id="@+id/ibSet"
+       android:layout_width="30dp"
+       android:layout_height="30dp"
+       android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+       android:layout_toLeftOf="@id/header"
+       android:layout_marginTop="32dp"
+       android:layout_marginRight="60dp"
+       />
+
+   <View
+       android:layout_width="450dp"
+       android:layout_height="2dp"
+       android:layout_below="@id/header"
+       android:layout_marginTop="231dp"
+       android:layout_marginBottom="-6dp"
+       android:background="#808080" />
+
+   <ImageView
+       android:id="@+id/imageView"
+       android:layout_width="136dp"
+       android:layout_height="139dp"
+       android:layout_below="@id/header"
+       android:layout_marginTop="1dp"
+       android:layout_marginLeft="135dp"
+       android:src="@drawable/userprofile" />
+
+   <ImageView
+       android:id="@+id/imageView2"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="168dp"
+       android:layout_marginTop="201dp"
+       android:src="@drawable/idcheck" />
+
+   <ImageView
+       android:id="@+id/imageView3"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginTop="201dp"
+       android:layout_marginLeft="225dp"
+       android:src="@drawable/filecheck" />
+
+   <ImageView
+       android:id="@+id/imageView4"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="27dp"
+       android:layout_marginTop="448dp"
+       android:src="@drawable/slogout" />
+
+   <ImageView
+       android:id="@+id/imageView5"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="27dp"
+       android:layout_marginTop="354dp"
+       android:src="@drawable/snotification" />
+
+   <ImageView
+       android:id="@+id/imageView6"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="27dp"
+       android:layout_marginTop="262dp"
+       android:src="@drawable/sprofile" />
+
+   <ImageView
+       android:id="@+id/imageView7"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="27dp"
+       android:layout_marginTop="400dp"
+       android:src="@drawable/sticket" />
+
+   <ImageView
+       android:id="@+id/imageView8"
+       android:layout_width="32dp"
+       android:layout_height="25dp"
+       android:layout_below="@id/header"
+       android:layout_marginLeft="27dp"
+       android:layout_marginTop="307dp"
+       android:src="@drawable/swallet" />
 
 </RelativeLayout>
