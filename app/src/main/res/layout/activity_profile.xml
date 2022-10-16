@@ -1,0 +1,155 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Edit Profile"
+        android:textColor="@color/dark"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/profilename"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="221dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Name"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/profilemail"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilename"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Email"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/profilenumber"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilemail"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Phone Number"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+
+
+    <View
+        android:layout_width="450dp"
+        android:layout_height="2dp"
+        android:layout_below="@id/header"
+        android:layout_marginTop="195dp"
+        android:layout_marginBottom="-6dp"
+        android:background="#808080" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="152dp"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/userprofile" />
+
+    <ImageButton
+        android:id="@+id/ibLog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="100dp"
+        android:layout_toLeftOf="@id/header"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/profilename"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Alejo Dela Cruz"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textColor="@color/dark"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/useremail"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/profilemail"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="alejo.delacruz@gmail.com"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textColor="@color/dark"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/usernumber"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/profilenumber"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="+63 912 345 987"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textColor="@color/dark"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/verifyaccount"
+        android:layout_width="116dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/profilenumber"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="124dp"
+        android:backgroundTint="@color/grey"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Verify Account"
+        android:textAllCaps="false"
+        android:textColor="@color/dark"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="116dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/profilenumber"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="124dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textSize="10sp" />
+
+</RelativeLayout>

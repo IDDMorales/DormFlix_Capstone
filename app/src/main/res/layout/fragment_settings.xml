@@ -22,8 +22,9 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_below="@id/header"
-       android:layout_centerInParent="true"
+       android:layout_centerVertical="true"
        android:layout_marginTop="262dp"
+       android:background="@drawable/border"
        android:clickable="true"
        android:drawableStart="@drawable/sprofile"
        android:drawablePadding="20dp"
@@ -31,8 +32,7 @@
        android:paddingStart="30dp"
        android:text="Edit Profile"
        android:textColor="@color/dark"
-       android:textSize="20dp"
-       android:background="@drawable/border"/>
+       android:textSize="20dp" />
 
    <TextView
        android:id="@+id/payment"
@@ -161,10 +161,6 @@
        android:layout_height="25dp"
        android:layout_below="@id/header"
        android:layout_marginTop="201dp"
-       android:layout_marginLeft="225dp"
+       android:layout_marginLeft="210dp"
        android:src="@drawable/filecheck" />
-
-
-
-
 </RelativeLayout>

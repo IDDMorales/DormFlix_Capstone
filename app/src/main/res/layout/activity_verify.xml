@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".verify">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Verification"
+        android:textColor="@color/dark"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/verifyid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/dark"
+        android:text="ID"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/verifycor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="195dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="COR"
+        android:textColor="@color/dark"
+        android:textSize="20dp" />
+
+    <ImageButton
+        android:id="@+id/ibLog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="100dp"
+        android:layout_toLeftOf="@id/header"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+    <EditText
+        android:id="@+id/fileupload"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/verifyid"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="(Upload File)"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/fileupload1"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/verifycor"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="(Upload File)"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>
