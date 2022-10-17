@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedbacksuccess">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Feedback"
+        android:textColor="@color/dark"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/splashText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_bold"
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp"
+        android:minLines="2"
+        android:gravity="center"
+        android:text="ThankYou"
+        android:textColor="@color/dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/splashsub"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splashText"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="-43dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Your Feedback was successfully submitted"
+        android:textSize="14dp" />
+
+    <ImageButton
+        android:id="@+id/ibLog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="100dp"
+        android:layout_toLeftOf="@id/header"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/success" />
+
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/splashsub"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+</RelativeLayout>

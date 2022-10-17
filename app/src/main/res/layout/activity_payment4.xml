@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".paypal4">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Payment"
+        android:textColor="@color/dark"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/splashText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView14"
+        android:layout_marginTop="-28dp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:minLines="2"
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp"
+        android:text="You're Paypal account is now connected to Dormflix"
+        android:textColor="@color/dark"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/payterms1"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splashText"
+        android:layout_marginLeft="56dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="We're sending you to (Dormflix). Paypal won't ask for any info after this page. "
+        android:textSize="11dp" />
+
+    <ImageButton
+        android:id="@+id/ibLog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="102dp"
+        android:layout_toLeftOf="@id/header"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="222dp"
+        android:layout_height="127dp"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="26dp"
+        app:srcCompat="@drawable/paypallogo" />
+
+    <Button
+        android:id="@+id/btnPayLogin"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/payterms1"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Back to Home Page"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+</RelativeLayout>
