@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 
-public class homeFragment extends Fragment {
+public class homeFragment extends Fragment implements recyclerViewInterface{
 
     ArrayList<dorms> Dorms = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class homeFragment extends Fragment {
 
         setDorms();
 
-        adaptDorm adapter = new adaptDorm(getActivity(), Dorms);
+        adaptDorm adapter = new adaptDorm(getActivity(), Dorms, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -50,4 +50,8 @@ public class homeFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onItemClick(int position) {
+
+    }
 }

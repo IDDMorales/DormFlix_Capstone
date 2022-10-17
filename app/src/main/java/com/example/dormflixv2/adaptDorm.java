@@ -13,18 +13,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class adaptDorm extends RecyclerView.Adapter<adaptDorm.MyViewHolder> {
+    private final recyclerViewInterface recyclerViewInterface;
+
     Context context;
     ArrayList<dorms> Dorms;
-    public adaptDorm(Context context, ArrayList<dorms> Dorms){
+    public adaptDorm(Context context, ArrayList<dorms> Dorms, recyclerViewInterface recyclerViewInterface){
         this.context = context;
         this.Dorms = Dorms;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
     @NonNull
     @Override
     public adaptDorm.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_view_row, parent, false);
-        return new adaptDorm.MyViewHolder(view);
+        return new adaptDorm.MyViewHolder(view, recyclerViewInterface);
     }
 
     @Override
@@ -43,12 +46,26 @@ public class adaptDorm extends RecyclerView.Adapter<adaptDorm.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView imgView;
         TextView doName, doPlace,doPrice;
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, recyclerViewInterface recyclerViewInterface) {
             super(itemView);
             imgView = itemView.findViewById(R.id.imgHold);
             doName = itemView.findViewById(R.id.dName);
             doPlace = itemView.findViewById(R.id.dPlace);
             doPrice = itemView.findViewById(R.id.dPrice);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(recyclerViewInterface != null){
+                        int pos = getAdapterPosition();
+
+                        if(pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+
+                    }
+                }
+            });
 
         }
     }
