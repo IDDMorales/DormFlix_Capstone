@@ -1,5 +1,6 @@
 package com.example.dormflixv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,12 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 
 public class homeFragment extends Fragment implements recyclerViewInterface{
-
     ArrayList<dorms> Dorms = new ArrayList<>();
 
     int[] dormPic = {R.drawable.dorm1, R.drawable.dorm2, R.drawable.dorm3, R.drawable.dorm4};
@@ -31,6 +36,7 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         RecyclerView recyclerView = view.findViewById(R.id.mRecyclerView);
 
         setDorms();
@@ -38,6 +44,8 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
         adaptDorm adapter = new adaptDorm(getActivity(), Dorms, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
     }
 
     private void setDorms(){
@@ -49,6 +57,8 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
             Dorms.add(new dorms(dormName[i],dormPlace[i],dormPrice[i], dormPic[i]));
         }
     }
+
+
 
     @Override
     public void onItemClick(int position) {

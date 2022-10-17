@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class profileFragment extends Fragment {
     private FirebaseAuth mAuth;
+    private TextView editProfile;
 
 
     @Override
@@ -32,6 +33,15 @@ public class profileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         super.onViewCreated(view, savedInstanceState);
+
+        editProfile = view.findViewById(R.id.editprofile);
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), rProfile.class));
+            }
+        });
 
         TextView txtlogout = view.findViewById(R.id.txtlogout);
         txtlogout.setOnClickListener(View -> {

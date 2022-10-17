@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile">
+    tools:context=".rProfile">
 
     <TextView
         android:id="@+id/header"
@@ -68,10 +68,11 @@
         android:layout_below="@id/header"
         android:layout_marginLeft="125dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/userprofile" />
+        android:src="@drawable/userprofile"
+        android:clickable="true"/>
 
     <ImageButton
-        android:id="@+id/ibLog"
+        android:id="@+id/editBck"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="32dp"
@@ -120,15 +121,40 @@
         android:paddingLeft="10dp"
         android:textColor="@color/dark"
         android:textSize="16sp" />
+    <TextView
+        android:id="@+id/profPass"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilenumber"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="New Password"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+
+    <EditText
+        android:id="@+id/userPass"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/profPass"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="New Password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="@color/dark"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/verifyaccount"
         android:layout_width="116dp"
         android:layout_height="35dp"
-        android:layout_below="@id/profilenumber"
+        android:layout_below="@id/userPass"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/grey"
         android:fontFamily="@font/poppins_semibold"
         android:text="Verify Account"
@@ -140,10 +166,11 @@
         android:id="@+id/save"
         android:layout_width="116dp"
         android:layout_height="35dp"
-        android:layout_below="@id/profilenumber"
+        android:layout_toEndOf="@id/verifyaccount"
+        android:layout_below="@+id/userPass"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_semibold"
         android:text="Save"

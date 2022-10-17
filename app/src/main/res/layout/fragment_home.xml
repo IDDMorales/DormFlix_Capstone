@@ -34,7 +34,7 @@
         android:layout_below="@id/welcome"
         android:layout_toEndOf="@id/pfp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Aljohn Eclavia"
+        android:text="USER FULL NAME "
         android:textSize="20dp"
         android:textColor="@color/dark"
         />
@@ -42,8 +42,8 @@
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_toEndOf="@id/pName"
-        android:layout_marginStart="60dp"
+        android:layout_toEndOf="@id/welcome"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
