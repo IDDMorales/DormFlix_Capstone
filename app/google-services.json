@@ -1,42 +1,63 @@
 {
   "project_info": {
-    "project_number": "17362812875",
-    "firebase_url": "https://auth-4209d-default-rtdb.firebaseio.com",
-    "project_id": "auth-4209d",
-    "storage_bucket": "auth-4209d.appspot.com"
+    "project_number": "230970620762",
+    "firebase_url": "https://dormflix-gncd69-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "dormflix-gncd69",
+    "storage_bucket": "dormflix-gncd69.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:17362812875:android:3737ebe730672385df404e",
+        "mobilesdk_app_id": "1:230970620762:android:0b5875a4ac314740569163",
         "android_client_info": {
           "package_name": "com.example.dormflixv2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "17362812875-rv833hjf1qj019bpc567s0q79vjovohv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.dormflixv2",
-            "certificate_hash": "d7d5a7bb1631470431a794722e50374c55e0dccb"
-          }
-        },
-        {
-          "client_id": "17362812875-drhu7auibeik8ib1o85ulpr3dlam2pc0.apps.googleusercontent.com",
+          "client_id": "230970620762-ri3h5o9a413cvmiblfgv8n3nk56e91nu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDIWLY_zKv1pPVpqDbHIGDEYxhw4x0JM-s"
+          "current_key": "AIzaSyBKVBDIblGlgdeWfNQJUELKnhrCXWwgPyA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "17362812875-drhu7auibeik8ib1o85ulpr3dlam2pc0.apps.googleusercontent.com",
+              "client_id": "230970620762-ri3h5o9a413cvmiblfgv8n3nk56e91nu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230970620762:android:4946e6cbc4bb8d32569163",
+        "android_client_info": {
+          "package_name": "com.yotsutech.dormflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230970620762-ri3h5o9a413cvmiblfgv8n3nk56e91nu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKVBDIblGlgdeWfNQJUELKnhrCXWwgPyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230970620762-ri3h5o9a413cvmiblfgv8n3nk56e91nu.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
