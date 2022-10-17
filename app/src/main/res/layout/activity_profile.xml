@@ -85,7 +85,6 @@
         android:layout_height="45dp"
         android:layout_below="@id/profilename"
         android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
         android:hint="Alejo Dela Cruz"

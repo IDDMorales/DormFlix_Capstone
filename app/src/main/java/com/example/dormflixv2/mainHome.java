@@ -28,7 +28,8 @@ public class mainHome extends AppCompatActivity implements BottomNavigationView.
 
     homeFragment homeFragment = new homeFragment();
     profileFragment profileFragment = new profileFragment();
-    settingsFragment settingsFragment = new settingsFragment();
+    bookmarkFragment bookmarkFragment = new bookmarkFragment();
+
 
 
     @Override
@@ -37,11 +38,12 @@ public class mainHome extends AppCompatActivity implements BottomNavigationView.
             case R.id.home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                 return true;
-            case R.id.profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
+            case R.id.bookmark:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, bookmarkFragment).commit();
                 return true;
-            case R.id.settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, settingsFragment).commit();
+
+                case R.id.profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
                 return true;
         }
         return false;

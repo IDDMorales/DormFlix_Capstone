@@ -5,10 +5,13 @@
     <item android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"
         android:id="@+id/home"/>
+
+    <item android:title="Bookmark"
+        android:icon="@drawable/ic_baseline_bookmarks_24"
+        android:id="@+id/bookmark"
+        />
     <item android:title="Profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:id="@+id/profile"/>
-    <item android:title="Settings"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:id="@+id/settings"/>
+
 </menu>
