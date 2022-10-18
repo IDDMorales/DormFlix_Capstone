@@ -1,11 +1,14 @@
 package com.example.dormflixv2;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -25,9 +28,13 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import android.app.Activity;
 
@@ -49,14 +56,17 @@ public class rProfile extends AppCompatActivity {
     Button saveButton;
     ImageView imageView;
     FirebaseAuth mAuth;
-    FirebaseFirestore db;
     FirebaseUser user;
+    DatabaseReference reference;
+    private DatabaseReference userRef;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rprofile);
 
+        reference = FirebaseDatabase.getInstance().getReference("users");
         nameEditText = findViewById(R.id.username);
         emailEditText = findViewById(R.id.useremail);
         numberEditText = findViewById(R.id.usernumber);
@@ -64,21 +74,12 @@ public class rProfile extends AppCompatActivity {
         saveButton = findViewById(R.id.save);
         imageView = findViewById(R.id.imageView);
         bckBtn = findViewById(R.id.editBck);
-        header = findViewById(R.id.header);
         prof = findViewById(R.id.profilename);
-        db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        Intent data = getIntent();
-        String fname = data.getStringExtra("fname");
-        String email = data.getStringExtra("email");
-        String phone = data.getStringExtra("phone");
-        String pass = data.getStringExtra("pass");
+        storageReference = FirebaseStorage.getInstance().getReference();
 
-        nameEditText.setText(fname);
-        emailEditText.setText(email);
-        numberEditText.setText(phone);
-        password.setText(pass);
+
 
         bckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,70 +87,84 @@ public class rProfile extends AppCompatActivity {
                 finish();
             }
         });
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(rProfile.this, "Profile Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                test();
+
+                update();
             }
         });
-        Log.d(TAG, "onCreate: " + fname + "" + email + "" + phone);
 
+        StorageReference profileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(imageView);
+            }
+        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(openGallery, 1000);
+            }
+        });
     }
 
-    public void test(){
-        FirebaseFirestore.getInstance().collection("Users/").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1000) {
+            if (resultCode == Activity.RESULT_OK) {
+                Uri imageUri = data.getData();
+
+                upload(imageUri);
+
+            }
+        }
+    }
+
+    private void upload(Uri imageUri) {
+        StorageReference fileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if(nameEditText.getText().toString().isEmpty()||emailEditText.getText().toString().isEmpty()||numberEditText.getText().toString().isEmpty()){
-                    Toast.makeText(rProfile.this, "One or many fields are empty.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                final String email = emailEditText.getText().toString();
-                user.updateEmail(emailEditText.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Map<String,Object> edited = new HashMap<>();
-                        edited.put("email",email);
-                        edited.put("fname", nameEditText.getText().toString());
-                        edited.put("phone", numberEditText.getText().toString());
-                        edited.put("pass", password.getText().toString());
-                        DocumentReference testRef = FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().getUid());
-                        FirebaseFirestore.getInstance().collection("Users");
-                        testRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(rProfile.this, "Profile is updated", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),mainHome.class));
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(rProfile.this, "Profile Update Failed", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(rProfile.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
 
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(rProfile.this, "email update failure", Toast.LENGTH_SHORT).show();
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).into(imageView);
+                        String test = uri.toString();
+                        updateProfilePic(test);
                     }
                 });
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(rProfile.this, "Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(rProfile.this, "Profile picture update has failed", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
+
+    private void updateProfilePic(String url) {
+
+        FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilepic").setValue(url);
+
+    }
+
+
+    private void update() {
+        Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(openGallery, 1000);
+
+
+
+    }
+
 }

@@ -16,12 +16,12 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 
 public class homeFragment extends Fragment implements recyclerViewInterface{
+
     ArrayList<dorms> Dorms = new ArrayList<>();
 
     int[] dormPic = {R.drawable.dorm1, R.drawable.dorm2, R.drawable.dorm3, R.drawable.dorm4};
@@ -33,7 +33,7 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated   (@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
