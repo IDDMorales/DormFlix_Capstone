@@ -21,8 +21,4 @@
         app:menu="@menu/bot_navbar"
         />
 
-
-
-
-
 </RelativeLayout>
