@@ -10,14 +10,28 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 
 public class profileFragment extends Fragment {
     private FirebaseAuth mAuth;
-    private TextView editProfile;
+    private TextView editProfile, name, email;
+    private ImageView imageView;
+    StorageReference storageReference;
+    DatabaseReference reference;
+
 
 
     @Override
@@ -35,6 +49,10 @@ public class profileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         editProfile = view.findViewById(R.id.editprofile);
+        name = view.findViewById(R.id.name);
+        email = view.findViewById(R.id.sEmail);
+        imageView = view.findViewById(R.id.imageView);
+
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +67,38 @@ public class profileFragment extends Fragment {
             Intent fragL= new Intent(getActivity(), Login.class);
             startActivity(fragL);
         });
+        reference = FirebaseDatabase.getInstance().getReference("/users/");
+        reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String Fname = String.valueOf(dataSnapshot.child("name").getValue());;
+                        String Femail = String.valueOf(dataSnapshot.child("email").getValue());
+                        String Fnumber = String.valueOf(dataSnapshot.child("number").getValue());
+                        String Fimageurl = String.valueOf(dataSnapshot.child("url").getValue());
 
+                        name.setText(Fname);
+                        email.setText(Femail);
+                        Picasso.get().load(Fimageurl).into(imageView);
+                    }
+                    else{
+
+                    }
+                }else{
+
+                }
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
+
 }

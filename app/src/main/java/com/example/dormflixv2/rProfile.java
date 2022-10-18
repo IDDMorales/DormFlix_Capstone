@@ -48,8 +48,6 @@ import android.os.Bundle;
 public class rProfile extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    String DISPLAY_NAME = null;
-    String PROFILE_IMAGE_URL = null;
     EditText nameEditText, emailEditText, numberEditText, password;
     TextView header, prof;
     ImageButton bckBtn;
@@ -60,6 +58,7 @@ public class rProfile extends AppCompatActivity {
     DatabaseReference reference;
     private DatabaseReference userRef;
     private StorageReference storageReference;
+    public String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +79,6 @@ public class rProfile extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
 
 
-
         bckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,25 +88,25 @@ public class rProfile extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                update();
+                uploadToUserDatabase();
             }
         });
 
-        StorageReference profileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(imageView);
-            }
-        });
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGallery, 1000);
+                udpateProfilePicture();
             }
         });
+
+
+    }
+
+    private void udpateProfilePicture() {
+
+        Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(openGallery, 1000);
+
     }
 
     @Override
@@ -118,27 +116,36 @@ public class rProfile extends AppCompatActivity {
         if (requestCode == 1000) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri imageUri = data.getData();
+                imageView.setImageURI(imageUri);
 
                 upload(imageUri);
-
             }
+
         }
+
     }
 
+
+    //uploading profile picture of user to storage
     private void upload(Uri imageUri) {
-        StorageReference fileRef = storageReference.child("images/" + mAuth.getCurrentUser().getUid() + "profile.jpg");
+
+        StorageReference fileRef = storageReference.child("users/profilepic/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "profilepic.jpg");
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(rProfile.this, "Profile picture updated successfully", Toast.LENGTH_SHORT).show();
-
-
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Picasso.get().load(uri).into(imageView);
-                        String test = uri.toString();
-                        updateProfilePic(test);
+                        Picasso.get().load(imageUri).into(imageView);
+                        url = uri.toString();
+                        Toast.makeText(rProfile.this, "Upload success", Toast.LENGTH_SHORT).show();
+                        uploadToUserDatabase();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(rProfile.this, "Upload failed", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
@@ -146,25 +153,30 @@ public class rProfile extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(rProfile.this, "Profile picture update has failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(rProfile.this, "Upload failed", Toast.LENGTH_SHORT).show();
+
             }
         });
 
     }
 
-    private void updateProfilePic(String url) {
+    private void uploadToUserDatabase() {
+        String name = nameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String number = numberEditText.getText().toString();
 
-        FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/profilepic").setValue(url);
 
+        FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .setValue(new Users(name.trim(), email.trim(), number.trim(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(rProfile.this, "User database updated", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(rProfile.this, "Failure in updating the database", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
-
-
-    private void update() {
-        Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(openGallery, 1000);
-
-
-
-    }
-
 }
