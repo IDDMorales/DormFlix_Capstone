@@ -97,7 +97,6 @@
         android:textColor="@color/dark"
         />
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_below="@id/txtRecommend"
         android:layout_width="match_parent"
