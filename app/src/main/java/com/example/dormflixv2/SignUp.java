@@ -21,6 +21,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,9 +37,11 @@ import java.util.Map;
 public class SignUp extends AppCompatActivity {
     public static final String TAG = "TAG";
     private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
     EditText mFullName,mEmail,mPassword,mPhone, mConPass, vPass;
     String userID;
+    public FirebaseDatabase database;
+    long maxid = 0;
+
 
 
     @Override
@@ -48,12 +55,11 @@ public class SignUp extends AppCompatActivity {
         mPassword = findViewById(R.id.editPass);
         mConPass = findViewById(R.id.editConPass);
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+        database = FirebaseDatabase.getInstance();
         TextView tv = findViewById(R.id.txtLogin);
         Button btnSign = findViewById(R.id.signBtn);
         vPass = findViewById(R.id.editPass);
-
-
+        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("users");
 
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,39 +90,33 @@ public class SignUp extends AppCompatActivity {
                     mConPass.setError("Password does not match");
                     return;
                 }
-                mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                //registration process via Email and Password
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-
-                            Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
-                            userID = mAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = db.collection("Users").document(userID);
-                            Map<String,Object> user = new HashMap<>();
-                            user.put("fname", fullname);
-                            user.put("email", email);
-                            user.put("phone", phone);
-                            user.put("pass", password);
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Log.d(TAG,"OnSuccess: user Profile is created for "+ userID);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG,"onFailure: " + e.toString());
-                                }
-                            });
-                            startActivity(new Intent(getApplicationContext(), Login.class));
-
-
-                        }else{
-                            Toast.makeText(SignUp.this, "Error !" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                        if(task.isSuccessful()){
+                            FirebaseDatabase.getInstance().
+                                    getReference("users/" + FirebaseAuth
+                                            .getInstance()
+                                            .getCurrentUser()
+                                            .getUid())
+                                    .setValue(new Users(mFullName.getText().toString(), mEmail.getText().toString(),mPhone.getText().toString())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(SignUp.this,  Login.class);
+                                            startActivity(intent);
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                     }
-                });
 
+                }
+            });
             }
         });
 

@@ -1,7 +1,5 @@
 package com.example.dormflixv2;
 
-import android.widget.EditText;
-
 public class Users {
 
     private String name;
@@ -42,7 +40,7 @@ public class Users {
     }
 
 
-    public Users(String name, String email, String number, String url) {
+    public Users(String name, String email, String number) {
         this.name = name;
         this.email = email;
         this.number = number;
