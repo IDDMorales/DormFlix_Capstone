@@ -17,17 +17,89 @@
         android:textColor="@color/dark"
         android:textSize="22sp" />
 
+    <TextView
+        android:id="@+id/bookedname"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Hotel Rafael"
+        android:textColor="@color/dark"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/bookedloc"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bookedname"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Dasmarinas Cavite"
+        android:textSize="12dp" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
-        android:adjustViewBounds="true"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="45dp"
+        android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:src="@drawable/dorm1"
-        app:shapeAppearanceOverlay="@style/corners">
+        app:shapeAppearanceOverlay="@style/corners"></com.google.android.material.imageview.ShapeableImageView>
 
-    </com.google.android.material.imageview.ShapeableImageView>>
+    <Button
+        android:id="@+id/bookcancel"
+        android:layout_width="164dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/bookedloc"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="@color/grey"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Cancel Booking"
+        android:textAllCaps="false"
+        android:textColor="@color/dark"
+        android:textSize="10sp" />
 
+    <Button
+        android:id="@+id/bookview"
+        android:layout_width="164dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/bookedloc"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_medium"
+        android:text="View Booking"
+        android:textAllCaps="false"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/status"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/bookedloc"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Pending"
+        android:textAllCaps="false"
+        android:textSize="10sp" />
+
+    <View
+        android:layout_width="370dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/bookedloc"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="-6dp"
+        android:background="#808080" />
 
 </RelativeLayout>
