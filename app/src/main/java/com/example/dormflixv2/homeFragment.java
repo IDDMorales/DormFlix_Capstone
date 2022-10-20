@@ -71,7 +71,6 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
                         DataSnapshot dataSnapshot = task.getResult();
                         String Fname = String.valueOf( dataSnapshot.child("name").getValue());;
                         String fProfile = String.valueOf(dataSnapshot.child("url").getValue());
-
                         pName.setText(Fname);
                         Picasso.get().load(fProfile).into(hProf);
                     }
