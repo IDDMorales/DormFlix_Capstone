@@ -40,7 +40,7 @@ public class Users {
     }
 
 
-    public Users(String name, String email, String number) {
+    public Users(String name, String email, String number, String url) {
         this.name = name;
         this.email = email;
         this.number = number;

@@ -7,7 +7,9 @@ import androidx.annotation.NonNull;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -22,8 +24,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -53,9 +58,9 @@ public class rProfile extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
         nameEditText = findViewById(R.id.username);
-        emailEditText = findViewById(R.id.useremail);
+
         numberEditText = findViewById(R.id.usernumber);
-        password = findViewById(R.id.userPass);
+
         saveButton = findViewById(R.id.save);
         imageView = findViewById(R.id.imageView);
         bckBtn = findViewById(R.id.editBck);
@@ -125,7 +130,6 @@ public class rProfile extends AppCompatActivity {
                         Picasso.get().load(imageUri).into(imageView);
                         url = uri.toString();
                         Toast.makeText(rProfile.this, "Upload success", Toast.LENGTH_SHORT).show();
-                        uploadToUserDatabase();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -148,15 +152,17 @@ public class rProfile extends AppCompatActivity {
 
     private void uploadToUserDatabase() {
         String name = nameEditText.getText().toString();
-        String email = emailEditText.getText().toString();
         String number = numberEditText.getText().toString();
+        String email  = user.getEmail();
 
 
         FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(new Users(name.trim(), email.trim(), number.trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                .setValue(new Users(name.trim(), email, number.trim(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(rProfile.this, "User database updated", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplication(), profileFragment.class);
+                        startActivity(intent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

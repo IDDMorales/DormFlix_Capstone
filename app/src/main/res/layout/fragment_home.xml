@@ -12,7 +12,9 @@
         android:layout_height="70dp"
         android:layout_marginTop="30dp"
         android:layout_marginStart="30dp"
-        android:src="@drawable/userprofile" />
+        android:src="@drawable/ic_baseline_person_24"
+
+        />
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,21 +16,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class SignUp extends AppCompatActivity {
@@ -41,7 +30,7 @@ public class SignUp extends AppCompatActivity {
     String userID;
     public FirebaseDatabase database;
     long maxid = 0;
-
+    private String url ;
 
 
     @Override
@@ -53,13 +42,14 @@ public class SignUp extends AppCompatActivity {
         mPhone = findViewById(R.id.editPNum);
         mEmail = findViewById(R.id.editEMail);
         mPassword = findViewById(R.id.editPass);
+        url = String.valueOf(maxid);
         mConPass = findViewById(R.id.editConPass);
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         TextView tv = findViewById(R.id.txtLogin);
         Button btnSign = findViewById(R.id.signBtn);
         vPass = findViewById(R.id.editPass);
-        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
 
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,12 +85,13 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
                             FirebaseDatabase.getInstance().
                                     getReference("users/" + FirebaseAuth
                                             .getInstance()
                                             .getCurrentUser()
                                             .getUid())
-                                    .setValue(new Users(mFullName.getText().toString(), mEmail.getText().toString(),mPhone.getText().toString())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .setValue(new Users(mFullName.getText().toString(), mEmail.getText().toString(),mPhone.getText().toString(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();

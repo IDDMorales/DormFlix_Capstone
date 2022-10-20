@@ -34,6 +34,7 @@ public class profileFragment extends Fragment {
 
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class profileFragment extends Fragment {
             Intent fragL= new Intent(getActivity(), Login.class);
             startActivity(fragL);
         });
+
         reference = FirebaseDatabase.getInstance().getReference("/users/");
         reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -74,14 +76,13 @@ public class profileFragment extends Fragment {
                 if(task.isSuccessful()){
                     if(task.getResult().exists()){
                         DataSnapshot dataSnapshot = task.getResult();
-                        String Fname = String.valueOf(dataSnapshot.child("name").getValue());;
+                        String Fname = String.valueOf( dataSnapshot.child("name").getValue());;
                         String Femail = String.valueOf(dataSnapshot.child("email").getValue());
-                        String Fnumber = String.valueOf(dataSnapshot.child("number").getValue());
-                        String Fimageurl = String.valueOf(dataSnapshot.child("url").getValue());
+                        String fProfile = String.valueOf(dataSnapshot.child("url").getValue());
 
                         name.setText(Fname);
                         email.setText(Femail);
-                        Picasso.get().load(Fimageurl).into(imageView);
+                        Picasso.get().load(fProfile).into(imageView);
                     }
                     else{
 

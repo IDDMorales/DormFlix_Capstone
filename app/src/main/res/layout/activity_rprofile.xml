@@ -20,15 +20,15 @@
         android:id="@+id/profilename"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="221dp"
+        android:layout_below="@id/divider"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_regular"
         android:text="Name"
         android:textColor="@color/dark"
         android:textSize="14dp" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/profilemail"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -38,13 +38,13 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Email"
         android:textColor="@color/dark"
-        android:textSize="14dp" />
+        android:textSize="14dp" />-->
 
     <TextView
         android:id="@+id/profilenumber"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/useremail"
+        android:layout_below="@id/username"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_regular"
@@ -70,7 +70,11 @@
         android:layout_marginLeft="125dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/userprofile"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:foreground="@drawable/ic_baseline_edit_24"
+        android:foregroundGravity="right"
+
+        />
 
     <ImageButton
         android:id="@+id/editBck"
@@ -87,15 +91,17 @@
         android:layout_height="45dp"
         android:layout_below="@id/profilename"
         android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
-        android:hint="Alejo Dela Cruz"
+        android:hint="Full Name"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textColor="@color/dark"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        />
 
-    <EditText
+    <!--<EditText
         android:id="@+id/useremail"
         android:layout_width="300dp"
         android:layout_height="45dp"
@@ -107,7 +113,7 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textColor="@color/dark"
-        android:textSize="16sp" />
+        android:textSize="16sp" />-->
 
     <EditText
         android:id="@+id/usernumber"
@@ -115,14 +121,15 @@
         android:layout_height="45dp"
         android:layout_below="@id/profilenumber"
         android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
-        android:hint="+63 912 345 987"
+        android:hint="0912 345 987"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textColor="@color/dark"
         android:textSize="16sp" />
-    <TextView
+    <!--<TextView
         android:id="@+id/profilePass"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
@@ -132,9 +139,9 @@
         android:fontFamily="@font/poppins_regular"
         android:text="New Password"
         android:textColor="@color/dark"
-        android:textSize="14dp" />
+        android:textSize="14dp" />-->
 
-    <EditText
+    <!--<EditText
         android:id="@+id/userPass"
         android:layout_width="300dp"
         android:layout_height="45dp"
@@ -146,13 +153,13 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textColor="@color/dark"
-        android:textSize="16sp" />
+        android:textSize="16sp" />-->
 
     <Button
         android:id="@+id/verifyaccount"
         android:layout_width="116dp"
         android:layout_height="35dp"
-        android:layout_below="@id/userPass"
+        android:layout_below="@id/usernumber"
         android:layout_centerVertical="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="10dp"
@@ -168,7 +175,7 @@
         android:layout_width="116dp"
         android:layout_height="35dp"
         android:layout_toEndOf="@id/verifyaccount"
-        android:layout_below="@+id/userPass"
+        android:layout_below="@+id/usernumber"
         android:layout_centerVertical="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="10dp"
