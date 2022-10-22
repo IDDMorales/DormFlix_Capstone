@@ -62,20 +62,25 @@
         android:layout_marginBottom="-6dp"
         android:background="#808080" />
 
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/constain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="8dp"
+        android:layout_below="@+id/header">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="160dp"
         android:layout_height="152dp"
         android:layout_below="@id/header"
-        android:layout_marginLeft="125dp"
-        android:layout_marginTop="10dp"
         android:src="@drawable/userprofile"
         android:clickable="true"
-        android:foreground="@drawable/ic_baseline_edit_24"
-        android:foregroundGravity="right"
-
+        android:layout_gravity="center"
         />
-
+    </androidx.cardview.widget.CardView>
     <ImageButton
         android:id="@+id/editBck"
         android:layout_width="30dp"

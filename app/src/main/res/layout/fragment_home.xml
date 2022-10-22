@@ -5,23 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homeFragment">
-
+    <androidx.cardview.widget.CardView
+        android:id="@+id/constain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="8dp"
+        >
     <ImageView
         android:id="@+id/pfp"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
         android:src="@drawable/ic_baseline_person_24"
-
         />
+    </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
-        android:layout_toEndOf="@+id/pfp"
+        android:layout_toEndOf="@+id/constain"
         android:fontFamily="@font/poppins_semibold"
         android:text="Welcome."
         android:textSize="20dp"
@@ -34,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_below="@id/welcome"
-        android:layout_toEndOf="@id/pfp"
+        android:layout_toEndOf="@id/constain"
         android:fontFamily="@font/poppins_semibold"
         android:text="USER FULL NAME "
         android:textSize="20dp"
@@ -52,7 +58,7 @@
         android:background="@drawable/ic_baseline_circle_notifications_24" />
     <TextView
         android:id="@+id/txtHome"
-        android:layout_below="@id/pfp"
+        android:layout_below="@id/constain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
