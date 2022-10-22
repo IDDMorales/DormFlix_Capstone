@@ -6,21 +6,115 @@
     android:layout_height="match_parent"
     tools:context=".description">
 
+    <ImageButton
+        android:id="@+id/desBck"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/desBck"
+        android:layout_above="@+id/firstCon"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/dark"
+        android:layout_marginStart="100dp"
+        android:text="Dormitory"
+        />
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/firstCon"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/desBck"
+        android:layout_height="wrap_content"
+        android:background="@color/grey">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contain"
         android:layout_width="match_parent"
         android:layout_height="200dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
     <ImageView
-        android:id="@+id/dormPic"
+        android:id="@+id/DormPic"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:adjustViewBounds="true"
-        android:padding="5dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/dorm1"
         />
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>>
+
+    <TextView
+        android:id="@+id/dName"
+        android:text="Bossing's Place"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_marginStart="15dp"
+
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_below="@+id/contain"/>
+    <TextView
+        android:id="@+id/dPlace"
+        android:text="Tablang, Paniqui"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_marginStart="15dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_below="@+id/dName"/>
+    <TextView
+        android:id="@+id/dPrice"
+        android:text="1500 PHP"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_marginStart="130dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_toEndOf="@+id/dName"
+        android:layout_below="@+id/contain"
+        />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Desc"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/firstCon"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Description"
+        android:textSize="20sp" />
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:text="Book now"
+        android:layout_below="@+id/Desc"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"/>
+
+
+
 
 </RelativeLayout>

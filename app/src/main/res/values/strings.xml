@@ -8,10 +8,10 @@
     </string-array>
 
     <string-array name="dorm_place">
-        <item>Paniqui,Tarlac</item>
-        <item>Paniqui,Tarlac</item>
-        <item>Capas,Tarlac</item>
-        <item>Capas,Tarlac</item>
+        <item>Room 101</item>
+        <item>Room 210</item>
+        <item>Room 414</item>
+        <item>Room 666</item>
     </string-array>
 
     <string-array name="dorm_price">
@@ -19,5 +19,12 @@
         <item>2000 PHP</item>
         <item>1000 PHP</item>
         <item>2500 PHP</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>DITO ANG TABLANG</item>
+        <item>Bossing tamad</item>
+        <item>Laging tulog</item>
+        <item>Ced Maslam</item>
     </string-array>
 </resources>

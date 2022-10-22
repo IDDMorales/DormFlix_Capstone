@@ -1,5 +1,6 @@
 package com.example.dormflixv2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 
 
 public class homeFragment extends Fragment implements recyclerViewInterface{
+
     private FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference reference;
@@ -61,8 +63,7 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
         pName = view.findViewById(R.id.pName);
 
 
-
-       reference = FirebaseDatabase.getInstance().getReference("users/");
+        reference = FirebaseDatabase.getInstance().getReference("users/");
         reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -107,9 +108,10 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
         String[] dormName = getResources().getStringArray(R.array.dorm_names);
         String[] dormPlace = getResources().getStringArray(R.array.dorm_place);
         String[] dormPrice = getResources().getStringArray(R.array.dorm_price);
+        String[] description = getResources().getStringArray(R.array.description);
 
         for(int i = 0; i<dormName.length; i++){
-            Dorms.add(new dorms(dormName[i],dormPlace[i],dormPrice[i], dormPic[i]));
+            Dorms.add(new dorms(dormName[i],dormPlace[i],dormPrice[i], dormPic[i],description[i]));
         }
     }
 
@@ -117,6 +119,15 @@ public class homeFragment extends Fragment implements recyclerViewInterface{
 
     @Override
     public void onItemClick(int position) {
+        Intent intent = new Intent(getActivity(), description.class);
+
+        intent.putExtra("Name", Dorms.get(position).getDormName());
+        intent.putExtra("Place", Dorms.get(position).getDormPlace());
+        intent.putExtra("Price", Dorms.get(position).getDormPrice());
+        intent.putExtra("Description", Dorms.get(position).getDescription());
+        intent.putExtra("Image", Dorms.get(position).getImg());
+
+        startActivity(intent);
 
     }
 }

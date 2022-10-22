@@ -42,7 +42,7 @@ public class rProfile extends AppCompatActivity {
     EditText nameEditText, emailEditText, numberEditText, password;
     TextView header, prof;
     ImageButton bckBtn;
-    Button saveButton;
+    Button saveButton, cancel, feedback;
     ImageView imageView;
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -56,12 +56,16 @@ public class rProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rprofile);
 
+
+
+
         reference = FirebaseDatabase.getInstance().getReference("Users");
         nameEditText = findViewById(R.id.username);
-
         numberEditText = findViewById(R.id.usernumber);
 
+        feedback =
         saveButton = findViewById(R.id.save);
+        cancel = findViewById(R.id.btnCancel);
         imageView = findViewById(R.id.imageView);
         bckBtn = findViewById(R.id.editBck);
         prof = findViewById(R.id.profilename);
@@ -69,6 +73,14 @@ public class rProfile extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
 
+
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         bckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +104,8 @@ public class rProfile extends AppCompatActivity {
 
 
     }
+
+
 
     private void udpateProfilePicture() {
 
