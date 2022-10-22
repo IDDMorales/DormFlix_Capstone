@@ -34,8 +34,8 @@
         android:fontFamily="@font/poppins_medium"
         android:hint="Enter Email Address"
         android:inputType="textEmailAddress"
-        android:paddingLeft="14dp"
-        android:textSize="15dp" />
+        android:paddingLeft="16dp"
+        android:textSize="16dp" />
 
     <Button
         android:id="@+id/signForgot"

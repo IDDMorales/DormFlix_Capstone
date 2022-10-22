@@ -44,7 +44,7 @@
         android:fontFamily="@font/poppins_regular"
         android:hint="Enter Full Name"
         android:inputType="textPersonName"
-        android:paddingLeft="12dp"
+        android:paddingLeft="16dp"
         android:textSize="15dp" />
 
     <TextView
@@ -65,9 +65,10 @@
         android:layout_below="@id/pNum"
         android:layout_centerInParent="true"
         android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
         android:hint="Enter Phone Number"
         android:inputType="text|number"
-        android:paddingLeft="10dp"
+        android:paddingLeft="16dp"
         android:textSize="15dp" />
 
     <TextView
@@ -88,9 +89,10 @@
         android:layout_below="@id/eMail"
         android:layout_centerInParent="true"
         android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
         android:hint="Enter Email Address"
         android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
+        android:paddingLeft="16dp"
         android:textSize="15dp" />
 
     <TextView
@@ -99,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/poppins_regular"
         android:text="Password"
         android:layout_below="@+id/editEMail"
         android:textSize="14dp" />
@@ -134,7 +136,7 @@
         android:layout_below="@+id/editpass"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/poppins_regular"
         android:text="Confirm Password"
         android:textSize="14dp" />
     <com.google.android.material.textfield.TextInputLayout
@@ -202,11 +204,11 @@
     
     <ImageButton
         android:id="@+id/ibSign"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
         android:layout_toLeftOf="@id/headSign"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="34dp"
         android:layout_marginRight="60dp"/>
 
 </RelativeLayout>

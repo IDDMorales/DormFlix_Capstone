@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
         android:layout_marginLeft="56dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_regular"
         android:text="Phone Number"
         android:textColor="@color/dark"
@@ -56,7 +56,7 @@
     <View
         android:id="@+id/divider"
         android:layout_width="450dp"
-        android:layout_height="2dp"
+        android:layout_height=".5dp"
         android:layout_below="@id/header"
         android:layout_marginTop="195dp"
         android:layout_marginBottom="-6dp"
@@ -83,9 +83,9 @@
     </androidx.cardview.widget.CardView>
     <ImageButton
         android:id="@+id/editBck"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="34dp"
         android:layout_marginRight="100dp"
         android:layout_toLeftOf="@id/header"
         android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
@@ -101,7 +101,7 @@
         android:fontFamily="@font/poppins_regular"
         android:hint="Full Name"
         android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
+        android:paddingLeft="16dp"
         android:textColor="@color/dark"
         android:textSize="16sp"
         />
@@ -131,7 +131,7 @@
         android:fontFamily="@font/poppins_regular"
         android:hint="0912 345 987"
         android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
+        android:paddingLeft="16dp"
         android:textColor="@color/dark"
         android:textSize="16sp" />
     <!--<TextView
@@ -162,31 +162,29 @@
 
     <Button
         android:id="@+id/btnCancel"
-        android:layout_width="140dp"
+        android:layout_width="145dp"
         android:layout_height="50dp"
         android:layout_below="@id/usernumber"
         android:layout_centerVertical="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/grey"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="170dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/round_buttons2"
         android:fontFamily="@font/poppins_medium"
         android:text="Cancel"
-        android:textAllCaps="false"
         android:textColor="@color/dark"
-        android:textSize="16sp"
-
-        android:background="@drawable/round_buttons"
-        />
+        android:textAllCaps="false"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/save"
-        android:layout_width="140dp"
+        android:layout_width="145dp"
         android:layout_height="50dp"
         android:layout_toEndOf="@id/btnCancel"
         android:layout_below="@+id/usernumber"
         android:layout_centerVertical="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="170dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Save"
         android:textAllCaps="false"
