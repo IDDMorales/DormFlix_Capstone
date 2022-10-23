@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".receipt">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Receipt"
+        android:textColor="@color/dark"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="222dp"
+        android:layout_height="127dp"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/dormicon" />
+
+    <TextView
+        android:id="@+id/splashText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView12"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="10dp"
+        android:minLines="2"
+        android:gravity="center"
+        android:text="Success"
+        android:textColor="@color/dark"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/paywho"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splashText"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="You've successfully transferred money"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/Cash"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/paywho"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="1dp"
+        android:minLines="2"
+        android:gravity="center"
+        android:text="AMOUNT"
+        android:textColor="@color/dark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/from"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cash"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@id/Cash"
+        android:fontFamily="@font/poppins_regular"
+        android:text="From"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/fName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/from"
+        android:layout_below="@+id/Cash"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Aljuan Eclavia"
+        android:textSize="14dp" />
+
+
+</RelativeLayout>

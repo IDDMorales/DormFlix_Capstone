@@ -138,6 +138,6 @@ public class SignUp extends AppCompatActivity {
 
     private void startLogin() {
         Intent intentSign = new Intent(this, Login.class);
-        startActivity(intentSign);
-    }
+        startActivity(intentSign);    }
+
 }

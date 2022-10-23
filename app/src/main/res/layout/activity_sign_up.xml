@@ -21,7 +21,8 @@
         android:id="@+id/signPic"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:src="@drawable/signup"
+        android:layout_centerInParent="true"
+        android:src="@drawable/dormflixbanner"
         android:layout_below="@+id/headSign" />
 
     <TextView
@@ -206,7 +207,7 @@
         android:id="@+id/ibSign"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+        android:background="@drawable/back_arrow_1"
         android:layout_toLeftOf="@id/headSign"
         android:layout_marginTop="34dp"
         android:layout_marginRight="60dp"/>

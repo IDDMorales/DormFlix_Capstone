@@ -12,7 +12,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        android:background="@drawable/ic_baseline_arrow_back_ios_new_24" />
+        android:background="@drawable/back_arrow_1" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,6 +59,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/dorm1"
         />
+
+
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>>
 
@@ -107,6 +109,7 @@
         android:textSize="20sp" />
 
     <Button
+        android:id="@+id/btnBck"
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_below="@+id/Desc"
