@@ -23,11 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
         android:layout_centerVertical="true"
-        android:layout_marginTop="262dp"
-        android:background="@drawable/border"
+        android:layout_marginTop="270dp"
         android:clickable="true"
         android:drawableStart="@drawable/sprofile"
-        android:drawablePadding="20dp"
+        android:drawablePadding="24dp"
         android:fontFamily="@font/poppins_regular"
         android:paddingStart="30dp"
         android:text="Edit Profile"
@@ -40,14 +39,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editprofile"
         android:paddingStart="30dp"
-        android:drawablePadding="20dp"
+        android:drawablePadding="24dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/swallet"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/dark"
         android:text="Payment"
         android:textSize="20dp"
-        android:clickable="true"
-        android:background="@drawable/border"/>
+        android:clickable="true"/>
 
     <TextView
         android:id="@+id/notifications"
@@ -55,14 +54,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/payment"
         android:paddingStart="30dp"
-        android:drawablePadding="20dp"
+        android:drawablePadding="24dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/snotification"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/dark"
         android:text="Notifications"
         android:textSize="20dp"
-        android:clickable="true"
-        android:background="@drawable/border"/>
+        android:clickable="true"/>
 
     <TextView
         android:id="@+id/reportfeedback"
@@ -70,29 +69,29 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/notifications"
         android:paddingStart="30dp"
-        android:drawablePadding="20dp"
+        android:drawablePadding="26dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/sticket"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/dark"
         android:text="Feedback"
         android:textSize="20dp"
-        android:clickable="true"
-        android:background="@drawable/border"/>
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/txtlogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/reportfeedback"
-        android:paddingStart="30dp"
-        android:drawablePadding="20dp"
+        android:paddingStart="32dp"
+        android:drawablePadding="26dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/slogout"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/red"
         android:text="Logout"
         android:textSize="20sp"
-        android:clickable="true"
-        android:background="@drawable/border"/>
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/name"
@@ -121,11 +120,12 @@
 
     <View
         android:layout_width="450dp"
-        android:layout_height="2dp"
+        android:layout_height="0.4px"
         android:layout_below="@id/header"
-        android:layout_marginTop="231dp"
+        android:layout_marginTop="240dp"
         android:layout_marginBottom="-6dp"
         android:background="#808080" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/constain"
         android:layout_width="wrap_content"

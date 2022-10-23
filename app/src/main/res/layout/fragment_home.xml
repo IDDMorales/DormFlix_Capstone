@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
         app:cardCornerRadius="100dp"
         app:cardElevation="8dp"
         >
@@ -29,7 +29,7 @@
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/constain"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Welcome."
+        android:text="Welcome,"
         android:textSize="20dp"
         android:textColor="@color/dark"
         android:alpha=".50"
@@ -42,16 +42,17 @@
         android:layout_below="@id/welcome"
         android:layout_toEndOf="@id/constain"
         android:fontFamily="@font/poppins_semibold"
-        android:text="USER FULL NAME "
+        android:text="Full Name"
+        android:textAllCaps="false"
         android:textSize="20dp"
         android:textColor="@color/dark"
         />
 
     <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_toEndOf="@id/welcome"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="135dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
@@ -61,24 +62,25 @@
         android:layout_below="@id/constain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Find the Dorm"
-        android:textSize="25dp"
+        android:textSize="24dp"
         android:textColor="@color/dark"
-        android:layout_marginStart="30dp" />
+        android:layout_marginStart="20dp" />
     <TextView
         android:id="@+id/txtHome2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:layout_below="@id/txtHome"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Room for you"
-        android:textSize="25dp"
+        android:textSize="24dp"
         android:textColor="@color/dark"
         />
-    <EditText
+
+    <!--<EditText
         android:id="@+id/search"
         android:layout_width="390dp"
         android:layout_height="44dp"
@@ -91,17 +93,18 @@
         android:drawableStart="@drawable/ic_baseline_search_24"
         android:inputType="text"
         android:paddingLeft="12dp"
-        android:textSize="15dp" />
+        android:textSize="15dp" />-->
 
     <TextView
         android:id="@+id/txtRecommend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_below="@id/search"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/txtHome2"
         android:fontFamily="@font/poppins_semibold"
-        android:text="RECOMMENDED"
-        android:textSize="14dp"
+        android:text="Recommended"
+        android:textSize="16dp"
+        android:textAllCaps="false"
         android:textColor="@color/dark"
         />
 

@@ -21,12 +21,13 @@
         android:textSize="20sp"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/dark"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="100dp"
         android:text="Dormitory"
         />
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:id="@+id/firstCon"
         android:layout_width="wrap_content"
         android:layout_below="@id/desBck"
@@ -39,11 +40,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="-10dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:cardCornerRadius="20dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,13 +105,18 @@
         android:fontFamily="@font/poppins_medium"
         android:text="Description"
         android:textSize="20sp" />
+
     <Button
-        android:layout_width="400dp"
-        android:layout_height="80dp"
-        android:text="Book now"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
         android:layout_below="@+id/Desc"
         android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_buttons"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Book now"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
 
 
 
