@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".datePick">
+    <ImageButton
+        android:id="@+id/dpSign"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/bkHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BOOKING"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/dark"
+        android:layout_toEndOf="@id/dpSign"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="100dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/dpfName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="56dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Full Name"
+        android:textSize="14dp"
+        android:layout_below="@id/bkHead"/>
+
+    <EditText
+
+        android:id="@+id/dpEname"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/dpfName"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Enter Full Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="12dp"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/dpContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Phone Number"
+        android:textSize="14dp"
+        android:layout_below="@id/dpEname"/>
+
+    <EditText
+        android:id="@+id/dpEcont"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/dpContact"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Phone Number"
+        android:inputType="textPersonName"
+        android:paddingLeft="12dp"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/dpRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Room Number"
+        android:textSize="14dp"
+        android:layout_below="@id/dpEcont"/>
+
+    <EditText
+        android:id="@+id/dpEroom"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/dpRoom"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Room Number"
+        android:inputType="textPersonName"
+        android:paddingLeft="12dp"
+        android:textSize="15dp" />
+    <TextView
+        android:id="@+id/dpPick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Pick Date"
+        android:textSize="14dp"
+        android:layout_below="@id/dpEroom"/>
+
+    <EditText
+        android:id="@+id/dpEpick"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_below="@id/dpPick"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Please Pick Date"
+        android:inputType="textPersonName"
+        android:paddingLeft="12dp"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/btnFinalB"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/dpEpick"
+        android:text="BOOK NOW"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
