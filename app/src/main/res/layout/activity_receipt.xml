@@ -23,7 +23,8 @@
         android:layout_below="@id/header"
         android:layout_marginLeft="95dp"
         android:layout_marginTop="26dp"
-        android:src="@drawable/dormicon" />
+        android:src="@drawable/statuschecks"
+        app:tint="@color/green" />
 
     <TextView
         android:id="@+id/splashText"
@@ -71,23 +72,152 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Cash"
-        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
-        android:layout_toLeftOf="@id/Cash"
-        android:fontFamily="@font/poppins_regular"
-        android:text="From"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="From:"
         android:textColor="@color/dark"
         android:textSize="14dp" />
+
     <TextView
-        android:id="@+id/fName"
+        android:id="@+id/payName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/from"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/Cash"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/dark"
         android:text="Aljuan Eclavia"
         android:textSize="14dp" />
 
+    <TextView
+        android:id="@+id/payuse"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/from"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Paypal"
+        android:textSize="14dp" />
+
+    <View
+        android:layout_width="340dp"
+        android:layout_height="0.8dp"
+        android:layout_below="@id/payuse"
+        android:layout_marginLeft="56dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="-6dp"
+        android:background="#808080" />
+
+    <TextView
+        android:id="@+id/to"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payuse"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="To:"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/paypaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/payuse"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/dark"
+        android:text="Dormflix"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/paiduser"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/to"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Paypal"
+        android:textSize="14dp" />
+
+    <View
+        android:layout_width="340dp"
+        android:layout_height="0.8dp"
+        android:layout_below="@id/paiduser"
+        android:layout_marginLeft="56dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="-6dp"
+        android:background="#808080" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/paiduser"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Date:"
+        android:textColor="@color/dark"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/paydate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/paiduser"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/dark"
+        android:text="26 April, 2022"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/paytime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/paydate"
+        android:fontFamily="@font/poppins_regular"
+        android:text="12:36 PM"
+        android:textSize="14dp" />
+
+    <Button
+        android:id="@+id/btnPayDone"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/paytime"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <ImageButton
+        android:id="@+id/ibLog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="102dp"
+        android:layout_toLeftOf="@id/header"
+        android:background="@drawable/back_arrow_1" />
 
 </RelativeLayout>

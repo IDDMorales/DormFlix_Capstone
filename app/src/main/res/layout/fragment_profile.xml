@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editprofile"
         android:paddingStart="30dp"
+        android:drawableStart="@drawable/swallet"
         android:drawablePadding="24dp"
         android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/swallet"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/dark"
         android:text="Payment"
@@ -141,21 +141,5 @@
         android:layout_below="@id/header"
         android:src="@drawable/userprofile" />
     </androidx.cardview.widget.CardView>
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/header"
-        android:layout_marginLeft="168dp"
-        android:layout_marginTop="201dp"
-        android:src="@drawable/idcheck" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="32dp"
-        android:layout_height="25dp"
-        android:layout_below="@id/header"
-        android:layout_marginTop="201dp"
-        android:layout_marginLeft="210dp"
-        android:src="@drawable/filecheck" />
 </RelativeLayout>
