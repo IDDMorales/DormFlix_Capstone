@@ -169,6 +169,26 @@ public class rProfile extends AppCompatActivity {
         String number = numberEditText.getText().toString();
         String email  = user.getEmail();
 
+        if (name.isEmpty() && number.isEmpty()) {
+            nameEditText.setError("Full name is required");
+            nameEditText.requestFocus();
+            numberEditText.setError("Phone number is required");
+            numberEditText.requestFocus();
+            return;
+        }
+        else if (name.isEmpty()) {
+            nameEditText.setError("Full name is required");
+            nameEditText.requestFocus();
+            return;
+        }
+        else if (number.isEmpty()) {
+            numberEditText.setError("Phone number is required");
+            numberEditText.requestFocus();
+            return;
+        }
+        else if (url == null){
+            Toast.makeText(rProfile.this, "Need to upload Picture", Toast.LENGTH_SHORT).show();
+        }
 
         FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .setValue(new Users(name.trim(), email, number.trim(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
