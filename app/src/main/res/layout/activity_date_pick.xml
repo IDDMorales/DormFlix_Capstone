@@ -130,7 +130,8 @@
         android:layout_height="50dp"
         android:layout_below="@id/dpEpick"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
+        android:background="@drawable/round_buttons"
+        android:layout_marginTop="30dp"
         android:text="BOOK NOW" />
 
 </RelativeLayout>

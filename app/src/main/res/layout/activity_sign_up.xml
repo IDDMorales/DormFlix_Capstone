@@ -21,9 +21,9 @@
         android:id="@+id/signPic"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
+        android:layout_below="@+id/headSign"
         android:layout_centerInParent="true"
-        android:src="@drawable/dormflixbanner"
-        android:layout_below="@+id/headSign" />
+        android:src="@drawable/dormflixbanner" />
 
     <TextView
         android:id="@+id/fName"

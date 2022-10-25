@@ -207,6 +207,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_medium"
+        android:background="@drawable/round_buttons"
         android:text="Done"
         android:textAllCaps="false"
         android:textSize="15sp" />

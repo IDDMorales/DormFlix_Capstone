@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".verifyemail">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Verify your Email"
+        android:textSize="20dp"
+        android:textColor="@color/dark"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/splashText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dormban"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:paddingTop="36dp"
+        android:paddingBottom="36dp"
+        android:layout_marginTop="1dp"
+        android:minLines="2"
+        android:gravity="center"
+        android:text="Check your email to verify your account and to start using Dormflix"
+        android:textColor="@color/dark"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/ibLog"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/back_arrow_1"
+        android:layout_toLeftOf="@id/header"
+        android:layout_marginTop="34dp"
+        android:layout_marginRight="60dp"
+        />
+
+    <ImageView
+        android:id="@+id/dormban"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@+id/header"
+        android:layout_centerInParent="true"
+        android:src="@drawable/verifysplash" />
+
+    <Button
+        android:id="@+id/btnLog"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/splashText"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_buttons"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

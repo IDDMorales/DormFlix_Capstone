@@ -144,22 +144,24 @@
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_medium"
         android:text="Login"
+        android:background="@drawable/round_buttons"
         android:textAllCaps="false"
         android:textSize="15sp" />
 
     <Button
-        android:id="@+id/btnPayCancel"
+        android:id="@+id/btnSignUp"
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:layout_below="@id/btnPayLogin"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="13dp"
-        android:backgroundTint="@color/grey"
+        android:layout_below="@+id/btnPayLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24px"
+        app:backgroundTint="@null"
+        android:background="@drawable/round_buttons2"
         android:fontFamily="@font/poppins_medium"
-        android:text="Cancel"
-        android:textAllCaps="false"
+        android:text="Sign Up"
         android:textColor="@color/dark"
-        android:textSize="15sp" />
+        android:textSize="16sp"
+        android:textAllCaps="false" />
 
     <ImageView
         android:id="@+id/imageView11"

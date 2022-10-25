@@ -70,6 +70,7 @@
         android:layout_below="@id/payterms1"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
+        android:background="@drawable/round_buttons"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_semibold"
         android:text="Back to Home Page"
