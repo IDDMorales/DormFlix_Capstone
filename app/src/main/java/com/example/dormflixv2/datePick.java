@@ -5,41 +5,44 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+
 import java.util.Calendar;
 
-public class datePick extends AppCompatActivity {
-    EditText datePick;
-    DatePickerDialog.OnDateSetListener setListener;
+public class datePick extends AppCompatActivity{
+    EditText datePickers;
+    TextView pickDate;
+    Button btnShow;
+
+
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_pick);
-        datePick.findViewById(R.id.dpEpick);
 
-        Calendar calendar =  Calendar.getInstance();
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
-        final int day =  calendar.get(Calendar.DAY_OF_MONTH);
+        datePickers = findViewById(R.id.dpEpick);
+        pickDate = findViewById(R.id.dpPick);
+        btnShow = findViewById(R.id.btnFinalB);
 
-        datePick.setOnClickListener(new View.OnClickListener() {
+        MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select Date").build();
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
             @Override
-            public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(datePick.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        month = month+1;
-                        String date = day+"/"+month+"/"+year;
-                        datePick.setText(date);
-                    }
-                }, year,month,day);
-                datePickerDialog.show();
+            public void onPositiveButtonClick(Object selection) {
+                datePickers.setText(""+materialDatePicker.getHeaderText());
             }
         });
+        materialDatePicker.show(getSupportFragmentManager(),"TAG");
 
 
     }
+
 }

@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +29,7 @@ import com.squareup.picasso.Picasso;
 
 public class profileFragment extends Fragment {
     private FirebaseAuth mAuth;
-    private TextView editProfile, name, email;
+    private TextView editProfile, name, email, notif;
     private ImageView imageView;
     StorageReference storageReference;
     DatabaseReference reference;
@@ -48,8 +50,9 @@ public class profileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         super.onViewCreated(view, savedInstanceState);
-
+        notif = view.findViewById(R.id.notifications);
         editProfile = view.findViewById(R.id.editprofile);
+
         name = view.findViewById(R.id.name);
         email = view.findViewById(R.id.sEmail);
         imageView = view.findViewById(R.id.imageView);
@@ -96,9 +99,21 @@ public class profileFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+       notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
+
+
+
+
+
 
     }
 

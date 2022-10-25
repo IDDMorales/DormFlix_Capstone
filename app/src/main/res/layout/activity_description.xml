@@ -60,7 +60,6 @@
         tools:srcCompat="@drawable/dorm1"
         />
 
-
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>>
 

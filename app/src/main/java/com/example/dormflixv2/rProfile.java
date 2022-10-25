@@ -56,14 +56,9 @@ public class rProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rprofile);
 
-
-
-
         reference = FirebaseDatabase.getInstance().getReference("Users");
         nameEditText = findViewById(R.id.username);
         numberEditText = findViewById(R.id.usernumber);
-
-        feedback =
         saveButton = findViewById(R.id.save);
         cancel = findViewById(R.id.btnCancel);
         imageView = findViewById(R.id.imageView);
@@ -195,8 +190,7 @@ public class rProfile extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(rProfile.this, "User database updated", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplication(), profileFragment.class);
-                        startActivity(intent);
+                        finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

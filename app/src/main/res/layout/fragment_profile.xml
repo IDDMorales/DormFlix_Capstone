@@ -78,11 +78,27 @@
         android:textSize="20dp"
         android:clickable="true" />
 
+
+    <TextView
+        android:id="@+id/verUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reportfeedback"
+        android:paddingStart="30dp"
+        android:drawableStart="@drawable/sveri"
+        android:drawablePadding="26dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/dark"
+        android:text="Vefication"
+        android:textSize="20dp"
+        android:clickable="true" />
+
     <TextView
         android:id="@+id/txtlogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/reportfeedback"
+        android:layout_below="@id/verUp"
         android:paddingStart="32dp"
         android:drawablePadding="26dp"
         android:layout_marginTop="20dp"

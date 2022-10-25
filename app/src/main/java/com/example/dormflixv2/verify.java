@@ -80,7 +80,6 @@ public class verify extends AppCompatActivity {
                     cursor = this.getContentResolver().query(uri, null, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
                         displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-
                     }
 
                 } finally {
