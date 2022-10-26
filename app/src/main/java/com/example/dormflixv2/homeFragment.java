@@ -109,8 +109,8 @@ public class homeFragment extends Fragment{
             @Override
             protected void onBindViewHolder(@NonNull MyAdapter holder, @SuppressLint("RecyclerView") int position, @NonNull MainModel model) {
                 holder.dormname.setText(model.getDormname());
-                holder.roomno.setText(model.getRoomno());
-                holder.price.setText(model.getPrice());
+                holder.roomno.setText("Room " +model.getRoomno());
+                holder.price.setText("₱ "+model.getPrice());
 
                 Glide.with(holder.img.getContext())
                         .load(model.getPurl())

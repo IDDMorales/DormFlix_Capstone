@@ -158,7 +158,7 @@ public class rProfile extends AppCompatActivity {
         });
 
     }
-
+//date update
     private void uploadToUserDatabase() {
         String name = nameEditText.getText().toString();
         String number = numberEditText.getText().toString();
@@ -182,20 +182,21 @@ public class rProfile extends AppCompatActivity {
             return;
         }
         else if (url == null){
-            Toast.makeText(rProfile.this, "Need to upload picture", Toast.LENGTH_SHORT).show();
+            Toast.makeText(rProfile.this, "Need to upload Picture", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .setValue(new Users(name.trim(), email, number.trim(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(rProfile.this, "User profile updated", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(rProfile.this, "User database updated", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(rProfile.this, "Failed to updated your profile. Try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(rProfile.this, "Failure in updating the database", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

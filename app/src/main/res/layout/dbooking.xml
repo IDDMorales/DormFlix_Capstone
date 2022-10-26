@@ -1,116 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/bkHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BOOKING"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_bold"
+        android:text="Booking"
+        android:textAllCaps="false"
         android:textColor="@color/dark"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/Cont"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="0.5dp"
         android:background="@color/dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bkHead"/>
-    <TextView
-        android:id="@+id/dpfName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
-        android:layout_marginTop="10dp"
-        android:text="Full Name"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@id/dpEname"
-        app:layout_constraintTop_toBottomOf="@id/Cont"/>
-
-    <EditText
-        android:id="@+id/dpEname"
-        android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:layout_below="@id/dpfName"
-        android:layout_marginTop="10dp"
-        android:paddingStart="10dp"
-        android:background="@drawable/border"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Enter Full Name"
-        android:inputType="textPersonName"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dpfName"/>
-    <TextView
-        android:id="@+id/dpContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Phone Number"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@id/dpEname"
-        app:layout_constraintTop_toBottomOf="@id/dpEname"/>
-
-    <EditText
-        android:id="@+id/dpEcont"
-        android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:layout_below="@id/dpContact"
-        android:layout_marginTop="10dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/border"
-        android:paddingStart="10dp"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="Phone Number"
-        android:inputType="textPersonName"
-        android:paddingLeft="12dp"
-        android:textSize="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dpContact"/>
-
+        app:layout_constraintTop_toBottomOf="@id/bkHead" />
 
     <TextView
         android:id="@+id/dpPick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Pick Date"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@id/dpEcont"
-        app:layout_constraintTop_toBottomOf="@id/dpEcont"/>
+        app:layout_constraintStart_toStartOf="@id/dpEpick"
+        app:layout_constraintTop_toBottomOf="@id/Cont" />
+
     <EditText
         android:id="@+id/dpEpick"
         android:layout_width="300dp"
         android:layout_height="44dp"
-        android:background="@drawable/border"
-        android:fontFamily="@font/poppins_regular"
         android:layout_marginTop="10dp"
-        android:paddingStart="10dp"
-        android:hint="Please Pick Date"
-        android:inputType="none"
+        android:background="@drawable/border"
+        android:clickable="true"
         android:focusable="false"
         android:focusableInTouchMode="true"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Please Pick Date"
+        android:inputType="none"
+        android:paddingStart="10dp"
         android:paddingLeft="12dp"
         android:textSize="15dp"
-        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dpPick"/>
+        app:layout_constraintTop_toBottomOf="@id/dpPick" />
 
     <Button
         android:id="@+id/btnFinalB"
@@ -121,6 +66,6 @@
         android:layout_marginTop="10dp"
         android:text="BOOK NOW"
         app:layout_constraintStart_toStartOf="@id/dpEpick"
-        app:layout_constraintTop_toBottomOf="@id/dpEpick"/>
+        app:layout_constraintTop_toBottomOf="@id/dpEpick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

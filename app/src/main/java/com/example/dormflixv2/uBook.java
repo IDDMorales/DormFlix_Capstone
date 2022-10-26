@@ -1,15 +1,40 @@
 package com.example.dormflixv2;
 
 public class uBook {
-    String fullName, pNumber, roomno,date;
+    String fullName;
+    String pNumber;
+    String roomno;
+    String date;
+    String purl;
+    String dornname;
 
-    public uBook(String fullName, String pNumber, String roomno, String date) {
+    public uBook(String fullName, String pNumber, String roomno, String date, String dornname, String purl) {
      this.fullName = fullName;
      this.pNumber = pNumber;
      this.roomno = roomno;
      this.date= date;
+     this.dornname = dornname;
+     this.purl=purl;
+
+
 
     }
+    public String getPurl() {
+        return purl;
+    }
+
+    public void setPurl(String purl) {
+        this.purl = purl;
+    }
+
+    public String getDornname() {
+        return dornname;
+    }
+
+    public void setDornname(String dornname) {
+        this.dornname = dornname;
+    }
+
 
     public String getFullName() {
         return fullName;

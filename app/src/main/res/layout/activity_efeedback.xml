@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feedbacksuccess">
+    tools:context=".eFeedback">
 
     <TextView
         android:id="@+id/header"
@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/success" />
 
     <Button
-        android:id="@+id/btnHome"
+        android:id="@+id/btnNormal"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_below="@id/splashsub"
@@ -69,7 +69,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/round_buttons"
         android:fontFamily="@font/poppins_medium"
-        android:text="Home"
+        android:text="Go Back"
         android:textAllCaps="false"
         android:textSize="15sp" />
 

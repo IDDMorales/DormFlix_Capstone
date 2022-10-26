@@ -41,10 +41,11 @@ public class mainHome extends AppCompatActivity implements BottomNavigationView.
             case R.id.bookmark:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, bookmarkFragment).commit();
                 return true;
-
                 case R.id.profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
+
                 return true;
+
         }
         return false;
 

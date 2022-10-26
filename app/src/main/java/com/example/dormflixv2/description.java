@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,7 @@ import com.squareup.picasso.Picasso;
 
 public class description extends AppCompatActivity {
     Button button;
-    DatabaseReference reference;
+    DatabaseReference reference,ref;
     FirebaseAuth mAuth;
     FirebaseUser user;
     StorageReference storageReference;
@@ -40,6 +41,7 @@ public class description extends AppCompatActivity {
     TextView dPrice;
     TextView Desc;
     ImageView dormPic;
+    ImageButton bck;
 
 
     @Override
@@ -47,12 +49,12 @@ public class description extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
         button = findViewById(R.id.btnBck);
-
+        bck = findViewById(R.id.desBck);
 
         //start of dialog
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dbooking);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dbookingbg));
 
         EditText ePick = dialog.findViewById(R.id.dpEpick);
@@ -62,6 +64,14 @@ public class description extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
+
+        bck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
 
         Button book = dialog.findViewById(R.id.btnFinalB);
@@ -80,74 +90,88 @@ public class description extends AppCompatActivity {
                                 String pNO = String.valueOf(dataSnapshot.child("number").getValue());
                                 String name = fName;
                                 String number = pNO;
-                                String roomno = room.getText().toString();
                                 String day = date.getText().toString();
+                                reference = FirebaseDatabase.getInstance().getReference("rooms/");
+                                String dormkey = getIntent().getStringExtra("dormKey");
+                                reference.child(dormkey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            if (task.getResult().exists()) {
+                                                DataSnapshot dataSnapshot = task.getResult();
+                                                String dName = String.valueOf(dataSnapshot.child("dormname").getValue());
+                                                String roomnum = String.valueOf(dataSnapshot.child("roomno").getValue());
+                                                String Purl = String.valueOf(dataSnapshot.child("purl").getValue());
+                                                String dormname = dName;
+                                                String purl = Purl;
+                                                String roomno = roomnum;
+                                                FirebaseDatabase.getInstance().getReference("bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                        .setValue(new uBook(name.trim(), number.trim(), roomno.trim(), day.trim(), dormname.trim(), purl.trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                Toast.makeText(description.this, "User Booked", Toast.LENGTH_SHORT).show();
+                                                                finish();
+                                                            }
+                                                        }).addOnFailureListener(new OnFailureListener() {
+                                                            @Override
+                                                            public void onFailure(@NonNull Exception e) {
+                                                                Toast.makeText(description.this, "Fail to Book User", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        });
+                                            } else {
 
-                                FirebaseDatabase.getInstance().getReference("bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(new uBook(name.trim(), number.trim(), roomno.trim(), day.trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                Toast.makeText(description.this, "Booking successful!", Toast.LENGTH_SHORT).show();
-                                                finish();
                                             }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(description.this, "Failed to make booking", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                            }
-                            else{
+                                        } else {
 
+                                        }
+                                    }
+                                });
                             }
-                        }
-                        else{
-
                         }
                     }
                 });
             }
         });
 
+        ePick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Select Date").build();
+                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+                    @Override
+                    public void onPositiveButtonClick(Object selection) {
+                        ePick.setText("" + materialDatePicker.getHeaderText());
+                    }
+                });
+                materialDatePicker.show(getSupportFragmentManager(), "TAG");
+            }
+        });
 
-                            ePick.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                                            .setTitleText("Select Date").build();
-                                    materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                                        @Override
-                                        public void onPositiveButtonClick(Object selection) {
-                                            ePick.setText("" + materialDatePicker.getHeaderText());
-                                        }
-                                    });
-                                    materialDatePicker.show(getSupportFragmentManager(), "TAG");
-                                }
-                            });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (button.isPressed()) {
+                    dialog.show();
+                }
+            }
+        });
 
 
-                            button.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    if (button.isPressed()) {
 
-                                        dialog.show();
-
-                                    }
-                                }
-                            });
                             //end of dialog
 
-        dormPic = findViewById(R.id.DormPic);
+       dormPic = findViewById(R.id.DormPic);
         dname = findViewById(R.id.dName);
         dRoom = findViewById(R.id.dPlace);
         dPrice = findViewById(R.id.dPrice);
         Desc = findViewById(R.id.Desc);
-        reference = FirebaseDatabase.getInstance().getReference("rooms/");
+        ref = FirebaseDatabase.getInstance().getReference("rooms/");
 
         String dormkey = getIntent().getStringExtra("dormKey");
 
-        reference.child(dormkey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        ref.child(dormkey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if(task.isSuccessful()){
@@ -166,8 +190,13 @@ public class description extends AppCompatActivity {
                         dPrice.setText(price);
                         Picasso.get().load(dP).into(dormPic);
 
+                    }
+                    else {
 
                     }
+                }
+                else {
+
                 }
             }
         });

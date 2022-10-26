@@ -28,8 +28,12 @@ import com.squareup.picasso.Picasso;
 
 
 public class profileFragment extends Fragment {
+
+
+
+
     private FirebaseAuth mAuth;
-    private TextView editProfile, name, email, notif;
+    private TextView editProfile, name, email;
     private ImageView imageView;
     StorageReference storageReference;
     DatabaseReference reference;
@@ -50,13 +54,26 @@ public class profileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         super.onViewCreated(view, savedInstanceState);
-        notif = view.findViewById(R.id.notifications);
         editProfile = view.findViewById(R.id.editprofile);
-
         name = view.findViewById(R.id.name);
         email = view.findViewById(R.id.sEmail);
         imageView = view.findViewById(R.id.imageView);
 
+
+        TextView notif = view.findViewById(R.id.notifications);
+        notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), Notification.class));
+            }
+        });
+        TextView feed = view.findViewById(R.id.reportfeedback);
+        feed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), sFeedback.class));
+            }
+        });
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,15 +118,6 @@ public class profileFragment extends Fragment {
                 Toast.makeText(getActivity(), "Failed to get data", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-       notif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
 
 
 

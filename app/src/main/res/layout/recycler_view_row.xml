@@ -41,8 +41,9 @@
                 android:layout_height="25sp"
                 android:layout_marginStart="15dp"
                 android:text="Bossing's Place"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/dark"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
                 app:layout_constraintTop_toBottomOf="@+id/imgHold"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -51,8 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tablang, Paniqui"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintStart_toStartOf="@id/dName"
                 app:layout_constraintTop_toBottomOf="@+id/dName"/>
 
@@ -60,21 +61,12 @@
                 android:id="@+id/dPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="50dp"
                 android:text="1500 PHP"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintStart_toEndOf="@id/dPlace"
                 app:layout_constraintTop_toBottomOf="@+id/dName"
-                />
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintStart_toEndOf="@id/dPrice"
-                app:layout_constraintTop_toBottomOf="@+id/imgHold"
-                android:background="@drawable/ic_baseline_bookmark_add_24"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
