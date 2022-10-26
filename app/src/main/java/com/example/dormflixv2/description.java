@@ -30,6 +30,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.time.temporal.TemporalQueries;
+
 public class description extends AppCompatActivity {
     Button button;
     DatabaseReference reference,ref;
@@ -40,6 +42,7 @@ public class description extends AppCompatActivity {
     TextView dRoom;
     TextView dPrice;
     TextView Desc;
+    TextView Avail;
     ImageView dormPic;
     ImageButton bck;
 
@@ -164,9 +167,12 @@ public class description extends AppCompatActivity {
 
        dormPic = findViewById(R.id.DormPic);
         dname = findViewById(R.id.dName);
-        dRoom = findViewById(R.id.dPlace);
+        dRoom = findViewById(R.id.dRoomcount);
         dPrice = findViewById(R.id.dPrice);
         Desc = findViewById(R.id.Desc);
+        Avail = findViewById(R.id.availBed);
+
+
         ref = FirebaseDatabase.getInstance().getReference("rooms/");
 
         String dormkey = getIntent().getStringExtra("dormKey");
@@ -182,12 +188,14 @@ public class description extends AppCompatActivity {
                         String roomnum = String.valueOf(dataSnapshot.child("roomno").getValue());
                         String price = String.valueOf(dataSnapshot.child("price").getValue());
                         String desc = String.valueOf(dataSnapshot.child("desc").getValue());
+                        String aRoom = String.valueOf(dataSnapshot.child("availbed").getValue());
 
 
+                        Avail.setText(aRoom);
                         Desc.setText(desc);
                         dRoom.setText(roomnum);
                         dname.setText(name);
-                        dPrice.setText(price);
+                        dPrice.setText("₱ "+ price + "/Month");
                         Picasso.get().load(dP).into(dormPic);
 
                     }

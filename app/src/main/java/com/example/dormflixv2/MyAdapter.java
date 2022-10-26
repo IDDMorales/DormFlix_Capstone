@@ -21,6 +21,7 @@ public class MyAdapter extends RecyclerView.ViewHolder {
         dormname = (TextView) itemView.findViewById(R.id.dName);
         roomno = (TextView) itemView.findViewById(R.id.dPlace);
         price = (TextView) itemView.findViewById(R.id.dPrice);
+        availbed = (TextView) itemView.findViewById(R.id.availBed);
         v = itemView;
 
     }
