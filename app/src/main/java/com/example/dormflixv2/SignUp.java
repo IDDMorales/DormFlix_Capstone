@@ -61,19 +61,19 @@ public class SignUp extends AppCompatActivity {
                 String confirmPass = mConPass.getText().toString().trim();
 
                 if(email.isEmpty()) {
-                    mEmail.setError("Field Can't Be empty");
+                    mEmail.setError("Field must not be empty");
                     return;
                 }
                 else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    mEmail.setError("Enter Valid Email");
+                    mEmail.setError("Enter valid email");
                 }
 
                 if(TextUtils.isEmpty(password)){
-                    mPassword.setError("Password is Required");
+                    mPassword.setError("Password is required");
                     return;
                 }
                 if(password.length() <8 || password.length() >12 ){
-                    mPassword.setError("Password Must be 8-12 characters");
+                    mPassword.setError("Password must be 8-12 characters");
                     return;
                 }
                 if(!confirmPass.equals(password)){
@@ -94,14 +94,14 @@ public class SignUp extends AppCompatActivity {
                                     .setValue(new Users(mFullName.getText().toString(), mEmail.getText().toString(),mPhone.getText().toString(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(SignUp.this, "User Created", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SignUp.this, "Account creation successful!", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(SignUp.this,  Login.class);
                                             startActivity(intent);
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SignUp.this, "Registration failed", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                     }

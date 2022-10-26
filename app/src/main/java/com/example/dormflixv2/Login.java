@@ -52,15 +52,15 @@ public class Login extends AppCompatActivity {
                 String password = mPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Email is Required");
+                    mEmail.setError("Email is required");
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    mPassword.setError("Password is Required");
+                    mPassword.setError("Password is required");
                     return;
                 }
                 if(password.length() <8 || password.length() >12){
-                    mPassword.setError("Password Must be 8 -12 characters");
+                    mPassword.setError("Password must be 8-12 characters");
                     return;
                 }
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
 
 
                         }else{
-                            Toast.makeText(Login.this, "Error !" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Error!" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

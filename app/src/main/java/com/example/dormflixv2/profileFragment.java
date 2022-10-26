@@ -98,7 +98,7 @@ public class profileFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Failed to get data", Toast.LENGTH_SHORT).show();
             }
         });
 

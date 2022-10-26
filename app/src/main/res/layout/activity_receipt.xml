@@ -205,12 +205,11 @@
         android:layout_below="@id/paytime"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/green"
-        android:fontFamily="@font/poppins_medium"
         android:background="@drawable/round_buttons"
+        android:fontFamily="@font/poppins_medium"
         android:text="Done"
         android:textAllCaps="false"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
     <ImageButton
         android:id="@+id/ibLog"

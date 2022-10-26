@@ -8,9 +8,9 @@
 
     <ImageButton
         android:id="@+id/desBck"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="14dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/back_arrow_1" />
     <TextView
@@ -19,15 +19,15 @@
         android:layout_toEndOf="@id/desBck"
         android:layout_above="@+id/firstCon"
         android:textSize="20sp"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/poppins_semibold"
         android:textColor="@color/dark"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="115dp"
         android:text="Dormitory"
         />
 
     <RelativeLayout
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:id="@+id/firstCon"
         android:layout_width="wrap_content"
         android:layout_below="@id/desBck"

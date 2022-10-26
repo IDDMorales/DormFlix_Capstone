@@ -87,13 +87,13 @@ public class description extends AppCompatActivity {
                                         .setValue(new uBook(name.trim(), number.trim(), roomno.trim(), day.trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
-                                                Toast.makeText(description.this, "User database updated", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(description.this, "Booking successful!", Toast.LENGTH_SHORT).show();
                                                 finish();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(description.this, "Failure in updating the database", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(description.this, "Failed to make booking", Toast.LENGTH_SHORT).show();
                                             }
                                         });
                             }
