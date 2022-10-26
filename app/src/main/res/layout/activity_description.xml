@@ -68,52 +68,119 @@
         android:text="Bossing's Place"
         android:layout_width="wrap_content"
         android:layout_height="30sp"
+        android:textColor="@color/dark"
         android:layout_marginStart="15dp"
-
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:fontFamily="@font/poppins_medium"
         android:layout_below="@+id/contain"/>
+
     <TextView
-        android:id="@+id/dPlace"
-        android:text="Tablang, Paniqui"
+        android:id="@+id/dRoom"
+        android:text="Room"
         android:layout_width="wrap_content"
         android:layout_height="30sp"
         android:layout_marginStart="15dp"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:fontFamily="@font/poppins_medium"
         android:layout_below="@+id/dName"/>
-    <TextView
-        android:id="@+id/dPrice"
-        android:text="1500 PHP"
-        android:layout_width="wrap_content"
-        android:layout_height="30sp"
-        android:layout_marginStart="130dp"
-        android:textSize="20sp"
-        android:fontFamily="@font/poppins_medium"
-        android:layout_toEndOf="@+id/dName"
-        android:layout_below="@+id/contain"
-        />
+
+        <TextView
+            android:id="@+id/dRoomcount"
+            android:text="(count)"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/dRoom"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_below="@+id/dName"/>
+
+        <TextView
+            android:id="@+id/dBeds"
+            android:text="Available Beds:"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/dark"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_below="@+id/dRoom"/>
+
+        <TextView
+            android:id="@+id/dBedscount"
+            android:text="(count)"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/dBeds"
+            android:textSize="15sp"
+            android:textColor="@color/dark"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_below="@+id/dRoom"/>
+
+        <TextView
+            android:id="@+id/dPriceS"
+            android:text="Price Starts:"
+            android:layout_width="wrap_content"
+            android:layout_height="20sp"
+            android:layout_marginStart="130dp"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_toEndOf="@+id/dName"
+            android:layout_below="@+id/contain"
+            />
+
+        <TextView
+            android:id="@+id/dPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_below="@+id/dPriceS"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="130dp"
+            android:layout_toEndOf="@+id/dName"
+            android:fontFamily="@font/poppins_medium"
+            android:text="1500/month"
+            android:textColor="@color/dark"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/Desc"
-        android:layout_width="500dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:layout_below="@+id/firstCon"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/dark"
         android:text="Description"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/DescInfo"
+        android:layout_width="350dp"
+        android:layout_height="220dp"
+        android:layout_below="@+id/Desc"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,"
+        android:textSize="13sp" />
 
     <Button
         android:id="@+id/btnBck"
         android:layout_width="350dp"
         android:layout_height="55dp"
-        android:layout_below="@+id/Desc"
+        android:layout_below="@+id/DescInfo"
         android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/round_buttons"
         android:fontFamily="@font/poppins_medium"
         android:text="Book now"

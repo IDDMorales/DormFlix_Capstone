@@ -79,21 +79,6 @@
         android:clickable="true" />
 
 
-    <!--<TextView
-        android:id="@+id/verUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/reportfeedback"
-        android:paddingStart="30dp"
-
-        android:drawablePadding="26dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/dark"
-        android:text="Vefication"
-        android:textSize="20dp"
-        android:clickable="true" />-->
-
     <TextView
         android:id="@+id/txtlogout"
         android:layout_width="match_parent"
@@ -117,6 +102,7 @@
         android:layout_marginLeft="137dp"
         android:layout_marginTop="8dp"
         android:layout_centerInParent="true"
+        android:gravity="center"
         android:fontFamily="@font/poppins_regular"
         android:text="Alejo Dela Cruz"
         android:textColor="@color/dark"
@@ -128,9 +114,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="112dp"
         android:layout_marginTop="178dp"
         android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
         android:text="alejo.delacruz@gmail.com"
         android:textColor="@color/dark"
         android:textSize="14dp" />
