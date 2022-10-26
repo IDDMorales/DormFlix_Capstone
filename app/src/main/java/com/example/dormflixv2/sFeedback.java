@@ -21,12 +21,14 @@ import com.google.firebase.database.ValueEventListener;
 public class sFeedback extends AppCompatActivity {
     Button submit;
     TextView comment;
+    DatabaseReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sfeedback);
         submit = findViewById(R.id.btnSubmit);
         comment = findViewById(R.id.feedbox);
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +37,7 @@ public class sFeedback extends AppCompatActivity {
                     Toast.makeText(sFeedback.this,"Field must not be empty.", Toast.LENGTH_LONG).show();
                 }
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("feedbacks");
+                myRef = database.getReference("feedbacks");
 
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -49,7 +51,8 @@ public class sFeedback extends AppCompatActivity {
 
                     }
                 });
-                myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("comment").setValue(comment.getText().toString());
+
+                myRef.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("comment").setValue(comment.getText().toString());
                 Toast.makeText(sFeedback.this,"Thanks for your feedback!", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplication(), eFeedback.class));
             }
