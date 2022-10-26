@@ -121,7 +121,6 @@ public class homeFragment extends Fragment{
                 holder.v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         Intent intent = new Intent(getActivity(), description.class);
                         intent.putExtra("dormKey", getRef(position).getKey());
                         startActivity(intent);

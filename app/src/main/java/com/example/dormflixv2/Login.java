@@ -67,10 +67,12 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-
-                            startActivity(new Intent(Login.this, mainHome.class));
-
-
+                            if(mAuth.getCurrentUser().isEmailVerified()) {
+                                startActivity(new Intent(Login.this, mainHome.class));
+                            }
+                            else{
+                                Toast.makeText(Login.this, "Please Verify Email", Toast.LENGTH_SHORT).show();
+                            }
                         }else{
                             Toast.makeText(Login.this, "Error!" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }

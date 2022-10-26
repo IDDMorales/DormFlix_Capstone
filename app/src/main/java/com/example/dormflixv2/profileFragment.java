@@ -74,6 +74,14 @@ public class profileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), sFeedback.class));
             }
         });
+        TextView pay = view.findViewById(R.id.paymentss);
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), pay1.class));
+            }
+        });
+
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override

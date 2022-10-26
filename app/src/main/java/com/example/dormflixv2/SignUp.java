@@ -85,6 +85,7 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            mAuth.getCurrentUser().sendEmailVerification();
 
                             FirebaseDatabase.getInstance().
                                     getReference("users/" + FirebaseAuth

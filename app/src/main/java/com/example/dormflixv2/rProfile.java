@@ -190,13 +190,13 @@ public class rProfile extends AppCompatActivity {
                 .setValue(new Users(name.trim(), email, number.trim(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(rProfile.this, "User database updated", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(rProfile.this, "User Details Update", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(rProfile.this, "Failure in updating the database", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(rProfile.this, "Failed to Update User Details", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

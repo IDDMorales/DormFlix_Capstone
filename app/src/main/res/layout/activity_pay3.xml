@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".paypal3">
+    tools:context=".pay3">
 
     <TextView
         android:id="@+id/header"
@@ -141,10 +141,10 @@
         android:layout_below="@id/payterms"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
+        android:background="@drawable/round_buttons"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_medium"
         android:text="Login"
-        android:background="@drawable/round_buttons"
         android:textAllCaps="false"
         android:textSize="15sp" />
 

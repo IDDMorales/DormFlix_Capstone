@@ -55,14 +55,16 @@ public class verify extends AppCompatActivity {
     }
 
     private void validateEmail() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = edit.getText().toString().trim();
         if(TextUtils.isEmpty(email)){
             edit.setError("Email is required");
             return;
         }
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         if(user.isEmailVerified()){
             startActivity(new Intent(verify.this, mainHome.class));
+
         }else{
             user.sendEmailVerification();
             Toast.makeText(verify.this, "Check your email to verify", Toast.LENGTH_LONG).show();
