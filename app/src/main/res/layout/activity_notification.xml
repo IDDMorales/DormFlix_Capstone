@@ -8,35 +8,26 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_below="@id/imageView15"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardElevation="3dp">
 
         <ImageView
             android:id="@+id/DormPic"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_baseline_circle_notifications_24"/>
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_baseline_circle_notifications_24" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
             android:paddingStart="10dp"
             android:text="General Cleaning \nDormFlix requested a payment of ₱ 300 "
             android:textColor="@color/dark" />
@@ -57,13 +48,13 @@
         android:id="@+id/imageView15"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_below="@id/header"
-        android:layout_marginLeft="320dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
         android:src="@drawable/deletenotif" />
 
     <ImageButton
-        android:id="@+id/ibLog"
+        android:id="@+id/ibNotif"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="34dp"

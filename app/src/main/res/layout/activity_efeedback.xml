@@ -43,7 +43,7 @@
         android:textSize="14dp" />
 
     <ImageButton
-        android:id="@+id/ibLog"
+        android:id="@+id/ibEfeed"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="32dp"
