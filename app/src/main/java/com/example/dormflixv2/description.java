@@ -80,60 +80,64 @@ public class description extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                reference = FirebaseDatabase.getInstance().getReference("users/");
-                reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            if (task.getResult().exists()) {
-                                DataSnapshot dataSnapshot = task.getResult();
-                                String fName = String.valueOf(dataSnapshot.child("name").getValue());
-                                String pNO = String.valueOf(dataSnapshot.child("number").getValue());
-                                String name = fName;
-                                String number = pNO;
-                                String day = date.getText().toString();
-                                reference = FirebaseDatabase.getInstance().getReference("rooms/");
-                                String dormkey = getIntent().getStringExtra("dormKey");
-                                reference.child(dormkey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                        if (task.isSuccessful()) {
-                                            if (task.getResult().exists()) {
-                                                DataSnapshot dataSnapshot = task.getResult();
-                                                String dName = String.valueOf(dataSnapshot.child("dormname").getValue());
-                                                String roomnum = String.valueOf(dataSnapshot.child("roomno").getValue());
-                                                String Purl = String.valueOf(dataSnapshot.child("purl").getValue());
-                                                String dormname = dName;
-                                                String purl = Purl;
-                                                String roomno = roomnum;
-                                                FirebaseDatabase.getInstance().getReference("bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                                        .setValue(new uBook(name.trim(), number.trim(), roomno.trim(), day.trim(), dormname.trim(), purl.trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<Void> task) {
-                                                                Toast.makeText(description.this, "User Booked", Toast.LENGTH_SHORT).show();
-                                                                finish();
-                                                            }
-                                                        }).addOnFailureListener(new OnFailureListener() {
-                                                            @Override
-                                                            public void onFailure(@NonNull Exception e) {
-                                                                Toast.makeText(description.this, "Fail to Book User", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                        });
+                String day = date.getText().toString();
+                if(day.isEmpty()){
+                    Toast.makeText(description.this, "No date selected", Toast.LENGTH_SHORT).show();
+                }
+                else{reference = FirebaseDatabase.getInstance().getReference("users/");
+                    reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                if (task.getResult().exists()) {
+                                    DataSnapshot dataSnapshot = task.getResult();
+                                    String fName = String.valueOf(dataSnapshot.child("name").getValue());
+                                    String pNO = String.valueOf(dataSnapshot.child("number").getValue());
+                                    String name = fName;
+                                    String number = pNO;
+                                    reference = FirebaseDatabase.getInstance().getReference("rooms/");
+                                    String dormkey = getIntent().getStringExtra("dormKey");
+                                    reference.child(dormkey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                if (task.getResult().exists()) {
+                                                    DataSnapshot dataSnapshot = task.getResult();
+                                                    String dName = String.valueOf(dataSnapshot.child("dormname").getValue());
+                                                    String roomnum = String.valueOf(dataSnapshot.child("roomno").getValue());
+                                                    String Purl = String.valueOf(dataSnapshot.child("purl").getValue());
+                                                    String dormname = dName;
+                                                    String purl = Purl;
+                                                    String roomno = roomnum;
+                                                    FirebaseDatabase.getInstance().getReference("bookings/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                            .setValue(new uBook(name.trim(), number.trim(), roomno.trim(), day.trim(), dormname.trim(), purl.trim())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    Toast.makeText(description.this, "User Booked", Toast.LENGTH_SHORT).show();
+                                                                    finish();
+                                                                }
+                                                            }).addOnFailureListener(new OnFailureListener() {
+                                                                @Override
+                                                                public void onFailure(@NonNull Exception e) {
+                                                                    Toast.makeText(description.this, "Fail to Book User", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            });
+                                                } else {
+                                                    Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+                                                }
                                             } else {
                                                 Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
                                             }
-                                        } else {
-                                            Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
                                         }
-                                    }
-                                });
+                                    });
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
+
 
         ePick.setOnClickListener(new View.OnClickListener() {
             @Override
