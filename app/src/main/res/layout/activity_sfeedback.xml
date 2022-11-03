@@ -38,7 +38,6 @@
         android:layout_width="297dp"
         android:layout_height="150dp"
         android:layout_below="@id/comment"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="60dp"
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
