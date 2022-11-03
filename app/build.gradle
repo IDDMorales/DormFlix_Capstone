@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.dormflixv2'
+    namespace 'com.yotsutech.dormflix'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.dormflixv2"
+        applicationId "com.yotsutech.dormflix"
         minSdk 26
         targetSdk 32
         versionCode 1
