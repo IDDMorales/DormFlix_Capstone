@@ -68,7 +68,7 @@ public class bookmarkFragment extends Fragment {
                 holders.setVisibility(View.INVISIBLE);
                 Button btnCancel = (Button) view.findViewById(R.id.bookCancel);
                 btnCancel.setEnabled(false);
-                Toast.makeText(getActivity(), "Cancellation Succeed ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Successfully cancelled booking", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -76,7 +76,7 @@ public class bookmarkFragment extends Fragment {
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"You did not cancel Booking", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Booking cancellation failed", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
