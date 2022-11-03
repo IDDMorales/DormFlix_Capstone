@@ -66,6 +66,8 @@ public class bookmarkFragment extends Fragment {
                         .setValue(null);
                 dialog.dismiss();
                 holders.setVisibility(View.INVISIBLE);
+                Button btnCancel = (Button) view.findViewById(R.id.bookCancel);
+                btnCancel.setEnabled(false);
                 Toast.makeText(getActivity(), "Cancellation Succeed ", Toast.LENGTH_SHORT).show();
 
             }
