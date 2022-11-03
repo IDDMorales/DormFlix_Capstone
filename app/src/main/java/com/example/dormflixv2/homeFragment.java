@@ -76,10 +76,10 @@ public class homeFragment extends Fragment{
                         pName.setText(Fname);
                         Picasso.get().load(fProfile).into(hProf);
                     } else {
-
+                        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-
+                    Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                 }
 
             }

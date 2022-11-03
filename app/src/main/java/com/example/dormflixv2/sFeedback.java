@@ -54,10 +54,10 @@ public class sFeedback extends AppCompatActivity {
                                 myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("comment").setValue(comment.getText().toString());
                                 myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(Fname);
                             } else {
-
+                                Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-
+                            Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
                         }
 
                     }

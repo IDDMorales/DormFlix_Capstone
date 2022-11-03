@@ -61,7 +61,6 @@ public class description extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dbookingbg));
 
         EditText ePick = dialog.findViewById(R.id.dpEpick);
-        EditText room = dialog.findViewById(R.id.dpEroom);
         EditText date = dialog.findViewById(R.id.dpEpick);
         reference = FirebaseDatabase.getInstance().getReference("bookings");
         mAuth = FirebaseAuth.getInstance();
@@ -122,10 +121,10 @@ public class description extends AppCompatActivity {
                                                             }
                                                         });
                                             } else {
-
+                                                Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
                                             }
                                         } else {
-
+                                            Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });

@@ -101,19 +101,18 @@ public class bookmarkFragment extends Fragment {
                         String dormname = String.valueOf( dataSnapshot.child("dornname").getValue());;
                         String roomnum = String.valueOf(dataSnapshot.child("roomno").getValue());
                         String imgL = String.valueOf(dataSnapshot.child("purl").getValue());
-
                         dormName.setText(dormname);
                         dormroom.setText("Room " + roomnum);
                         Picasso.get().load(imgL).into(img);
                         holders.setVisibility(View.VISIBLE);
                     }
                     else{
-
-
-
+                        Button btnCancel = (Button) view.findViewById(R.id.bookCancel);
+                        btnCancel.setEnabled(false);
+                        Toast.makeText(getActivity(), "No bookings yet", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-
+                    Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                 }
 
             }

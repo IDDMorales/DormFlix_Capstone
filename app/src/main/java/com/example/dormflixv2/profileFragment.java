@@ -113,10 +113,10 @@ public class profileFragment extends Fragment {
                         Picasso.get().load(fProfile).into(imageView);
                     }
                     else{
-
+                        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-
+                    Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                 }
 
             }
