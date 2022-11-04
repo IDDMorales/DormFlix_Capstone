@@ -16,6 +16,13 @@
         android:theme="@style/Theme.DormFlix"
         tools:targetApi="31">
         <activity
+            android:name=".receipt"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".pay4"
             android:exported="false">
             <meta-data
@@ -29,8 +36,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".pay1"
             android:exported="false">

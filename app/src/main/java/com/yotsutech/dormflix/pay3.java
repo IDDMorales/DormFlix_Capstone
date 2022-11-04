@@ -19,7 +19,7 @@ public class pay3 extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(), pay4.class));
+                startActivity(new Intent(getApplication(), receipt.class));
             }
         });
 

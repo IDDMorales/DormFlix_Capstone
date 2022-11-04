@@ -211,13 +211,4 @@
         android:textAllCaps="false"
         android:textSize="16sp" />
 
-    <ImageButton
-        android:id="@+id/ibLog"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginRight="102dp"
-        android:layout_toLeftOf="@id/header"
-        android:background="@drawable/back_arrow_1" />
-
 </RelativeLayout>

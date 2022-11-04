@@ -22,7 +22,7 @@
         android:layout_width="350dp"
         android:layout_height="300dp"
         android:layout_below="@id/appName"
-        android:layout_centerInParent="true"
+        android:layout_centerInParent=  "true"
         android:contentDescription="Splash Image"
         android:src="@drawable/first" />
 
