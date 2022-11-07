@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -36,12 +37,13 @@ public class rProfile extends AppCompatActivity {
     public static final String TAG = "TAG";
     EditText nameEditText, emailEditText, numberEditText, password;
     TextView header, prof;
-    ImageButton bckBtn;
+    ImageButton bckBtn, upload;
+    String holder;
     Button saveButton, cancel, feedback;
     ImageView imageView;
     FirebaseAuth mAuth;
     FirebaseUser user;
-    DatabaseReference reference;
+    DatabaseReference reference, myRef;
     private DatabaseReference userRef;
     private StorageReference storageReference;
     public String url;
@@ -57,6 +59,7 @@ public class rProfile extends AppCompatActivity {
         saveButton = findViewById(R.id.save);
         cancel = findViewById(R.id.btnCancel);
         imageView = findViewById(R.id.imageView);
+        upload = findViewById(R.id.uploadPFP);
         bckBtn = findViewById(R.id.editBck);
         prof = findViewById(R.id.profilename);
         mAuth = FirebaseAuth.getInstance();
@@ -85,7 +88,7 @@ public class rProfile extends AppCompatActivity {
             }
         });
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 udpateProfilePicture();
@@ -112,7 +115,6 @@ public class rProfile extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 Uri imageUri = data.getData();
                 imageView.setImageURI(imageUri);
-
                 upload(imageUri);
             }
 
@@ -131,7 +133,11 @@ public class rProfile extends AppCompatActivity {
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Picasso.get().load(imageUri).into(imageView);
+                        Picasso.get()
+                                .load(imageUri)
+                                .placeholder(R.drawable.ic_baseline_person_24)
+                                .error(R.drawable.ic_baseline_person_24)
+                                .into(imageView);
                         url = uri.toString();
                         Toast.makeText(rProfile.this, "Upload success", Toast.LENGTH_SHORT).show();
                     }
@@ -139,7 +145,10 @@ public class rProfile extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(rProfile.this, "Upload failed", Toast.LENGTH_SHORT).show();
-
+                        Picasso.get()
+                                .load(R.drawable.ic_baseline_person_24)
+                                .error(R.drawable.ic_baseline_person_24)
+                                .into(imageView);
                     }
                 });
 
@@ -167,19 +176,40 @@ public class rProfile extends AppCompatActivity {
             return;
         }
         else if (name.isEmpty()) {
-            nameEditText.setError("Full name is required");
-            nameEditText.requestFocus();
+            myRef = FirebaseDatabase.getInstance().getReference("users/");
+            myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        if (task.getResult().exists()) {
+                            DataSnapshot dataSnapshot = task.getResult();
+                            String Fname = String.valueOf(dataSnapshot.child("name").getValue());
+                            nameEditText.setText(Fname);
+                        } else {
+                            Toast.makeText(getApplication(), "Failed to get Value", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplication(), "Failed to get Value", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
             return;
         }
+
+
+
         else if (number.isEmpty()) {
             numberEditText.setError("Phone number is required");
             numberEditText.requestFocus();
             return;
         }
-        else if (url == null){
-            Toast.makeText(rProfile.this, "Need to upload Picture", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
 
         FirebaseDatabase.getInstance().getReference("users/" + FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .setValue(new Users(name.trim(), email, number.trim(), url)).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -195,4 +225,5 @@ public class rProfile extends AppCompatActivity {
                     }
                 });
     }
+
 }

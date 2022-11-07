@@ -16,6 +16,15 @@
         android:textColor="@color/dark"
         android:textSize="22sp" />
 
+    <ImageButton
+        android:id="@+id/uploadPFP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_file_upload_24"
+        android:layout_toEndOf="@id/header"
+        android:layout_below="@id/constain"
+        android:background="@color/white"
+       />
     <TextView
         android:id="@+id/profilename"
         android:layout_width="100dp"
@@ -76,11 +85,12 @@
         android:layout_width="160dp"
         android:layout_height="152dp"
         android:layout_below="@id/header"
-        android:src="@drawable/userprofile"
+        android:src="@drawable/ic_baseline_person_24"
         android:clickable="true"
         android:layout_gravity="center"
         />
     </androidx.cardview.widget.CardView>
+
     <ImageButton
         android:id="@+id/editBck"
         android:layout_width="24dp"
@@ -100,7 +110,7 @@
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
         android:hint="Full Name"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:paddingLeft="16dp"
         android:textColor="@color/dark"
         android:textSize="16sp"
@@ -130,7 +140,7 @@
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
         android:hint="0912 345 987"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:paddingLeft="16dp"
         android:textColor="@color/dark"
         android:textSize="16sp" />

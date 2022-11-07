@@ -70,7 +70,11 @@ public class homeFragment extends Fragment{
                         String Fname = String.valueOf(dataSnapshot.child("name").getValue());
                         String fProfile = String.valueOf(dataSnapshot.child("url").getValue());
                         pName.setText(Fname);
-                        Picasso.get().load(fProfile).into(hProf);
+                        Picasso.get()
+                                .load(fProfile)
+                                .placeholder(R.drawable.ic_baseline_person_24)
+                                .error(R.drawable.ic_baseline_person_24)
+                                .into(hProf);
                     } else {
                         Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
                     }
@@ -110,9 +114,9 @@ public class homeFragment extends Fragment{
 
                 Glide.with(holder.img.getContext())
                         .load(model.getPurl())
-                        .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
+                        .placeholder(R.drawable.ic_baseline_person_24)
                         .circleCrop()
-                        .error(com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_dark_normal)
+                        .error(R.drawable.ic_baseline_person_24)
                         .into(holder.img);
                 holder.v.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -133,7 +137,6 @@ public class homeFragment extends Fragment{
         };
         adapter.startListening();
         recyclerView.setAdapter(adapter);
-
     }
 
 

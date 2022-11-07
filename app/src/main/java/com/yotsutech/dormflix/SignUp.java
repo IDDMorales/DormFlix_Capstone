@@ -60,12 +60,26 @@ public class SignUp extends AppCompatActivity {
                 String phone = mPhone.getText().toString().trim();
                 String confirmPass = mConPass.getText().toString().trim();
 
+                if(fullname.isEmpty()) {
+                    mFullName.setError("Field must not be empty");
+                    return;
+                }
+                if(phone.isEmpty()) {
+                    mPhone.setError("Field must not be empty");
+                    return;
+                }
+                if(phone.length() != 11 ) {
+                    mPhone.setError("Please enter PH number");
+                    return;
+                }
                 if(email.isEmpty()) {
                     mEmail.setError("Field must not be empty");
                     return;
                 }
+
                 else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     mEmail.setError("Enter valid email");
+                    return;
                 }
 
                 if(TextUtils.isEmpty(password)){
@@ -80,6 +94,7 @@ public class SignUp extends AppCompatActivity {
                     mConPass.setError("Password does not match");
                     return;
                 }
+
                 //registration process via Email and Password
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

@@ -58,13 +58,7 @@ public class profileFragment extends Fragment {
         imageView = view.findViewById(R.id.imageView);
 
 
-        TextView notif = view.findViewById(R.id.notifications);
-        notif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), Notification.class));
-            }
-        });
+
         TextView feed = view.findViewById(R.id.reportfeedback);
         feed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +102,10 @@ public class profileFragment extends Fragment {
 
                         name.setText(Fname);
                         email.setText(Femail);
-                        Picasso.get().load(fProfile).into(imageView);
+                        Picasso.get().load(fProfile)
+                                .placeholder(R.drawable.ic_baseline_person_24)
+                                .error(R.drawable.ic_baseline_person_24)
+                                .into(imageView);
                     }
                     else{
                         Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
