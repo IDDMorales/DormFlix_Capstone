@@ -34,6 +34,7 @@
 
     <Button
         android:id="@+id/btnHome"
+        android:onClick="onBuyPressed"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_below="@id/splashText"

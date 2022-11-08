@@ -3,24 +3,67 @@ package com.yotsutech.dormflix;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import com.paypal.android.sdk.payments.PayPalAuthorization;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
+import com.paypal.android.sdk.payments.PayPalItem;
+import com.paypal.android.sdk.payments.PayPalOAuthScopes;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalPaymentDetails;
+import com.paypal.android.sdk.payments.PayPalProfileSharingActivity;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
+import com.paypal.android.sdk.payments.ShippingAddress;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class pay1 extends AppCompatActivity {
+    private static final String TAG = "paymentExample";
+    private static final String CONFIG_ENVIRONMENT = PayPalConfiguration.ENVIRONMENT_NO_NETWORK;
+
+    // note that these credentials will differ between live & sandbox environments.
+    private static final String CONFIG_CLIENT_ID = "credentials from developer.paypal.com";
+
+    private static final int REQUEST_CODE_PAYMENT = 1;
+    private static final int REQUEST_CODE_FUTURE_PAYMENT = 2;
+    private static final int REQUEST_CODE_PROFILE_SHARING = 3;
+
+    private static PayPalConfiguration config = new PayPalConfiguration()
+            .environment(CONFIG_ENVIRONMENT)
+            .clientId(CONFIG_CLIENT_ID)
+            // The following are only used in PayPalFuturePaymentActivity.
+            .merchantName("Example Merchant")
+            .merchantPrivacyPolicyUri(Uri.parse("https://www.example.com/privacy"))
+            .merchantUserAgreementUri(Uri.parse("https://www.example.com/legal"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay1);
         Button btnNext = findViewById(R.id.btnHome);
+        Intent intent = new Intent(this, PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+        startService(intent);
+/*
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplication(), pay3.class));
             }
         });
+*/
 
         ImageButton btnbck = findViewById(R.id.ibLog);
         btnbck.setOnClickListener(new View.OnClickListener() {
@@ -29,8 +72,63 @@ public class pay1 extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void onBuyPressed(View pressed) {
+        /*
+         * PAYMENT_INTENT_SALE will cause the payment to complete immediately.
+         * Change PAYMENT_INTENT_SALE to
+         *   - PAYMENT_INTENT_AUTHORIZE to only authorize payment and capture funds later.
+         *   - PAYMENT_INTENT_ORDER to create a payment for authorization and capture
+         *     later via calls from your server.
+         *
+         * Also, to include additional payment details and an item list, see getStuffToBuy() below.
+         */
+        PayPalPayment thingToBuy = getThingToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
 
+        /*
+         * See getStuffToBuy(..) for examples of some available payment options.
+         */
 
+        Intent intent = new Intent(pay1.this, PaymentActivity.class);
 
+        // send the same configuration for restart resiliency
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, thingToBuy);
+
+        startActivityForResult(intent, REQUEST_CODE_PAYMENT);
+    }
+
+    private PayPalPayment getThingToBuy(String paymentIntent) {
+        return new PayPalPayment(new BigDecimal("0.01"), "USD", "sample item",
+                paymentIntent);
+    }
+
+    /*
+     * This method shows use of optional payment details and item list.
+     */
+    private PayPalPayment getStuffToBuy(String paymentIntent) {
+        //--- include an item list, payment amount details
+        PayPalItem[] items =
+                {
+                        new PayPalItem("sample item #1", 2, new BigDecimal("87.50"), "USD",
+                                "sku-12345678"),
+                        new PayPalItem("free sample item #2", 1, new BigDecimal("0.00"),
+                                "USD", "sku-zero-price"),
+                        new PayPalItem("sample item #3 with a longer name", 6, new BigDecimal("37.99"),
+                                "USD", "sku-33333")
+                };
+        BigDecimal subtotal = PayPalItem.getItemTotal(items);
+        BigDecimal shipping = new BigDecimal("7.21");
+        BigDecimal tax = new BigDecimal("4.67");
+        PayPalPaymentDetails paymentDetails = new PayPalPaymentDetails(shipping, subtotal, tax);
+        BigDecimal amount = subtotal.add(shipping).add(tax);
+        PayPalPayment payment = new PayPalPayment(amount, "USD", "sample item", paymentIntent);
+        payment.items(items).paymentDetails(paymentDetails);
+
+        //--- set other optional fields like invoice_number, custom field, and soft_descriptor
+        payment.custom("This is text that will be associated with the payment that the app can use.");
+
+        return payment;
     }
 }
