@@ -3,6 +3,7 @@ package com.yotsutech.dormflix;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -74,6 +75,8 @@ public class forgot extends AppCompatActivity {
 
                 if(task.isSuccessful()){
                     Toast.makeText(forgot.this, "Check your email to reset your password", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplication(),Login.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(forgot.this, "Try again! Something wrong happened!", Toast.LENGTH_SHORT).show();
                 }
