@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.paypal.android.sdk.payments.PayPalAuthorization;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
@@ -102,6 +105,18 @@ public class pay1 extends AppCompatActivity {
     private PayPalPayment getThingToBuy(String paymentIntent) {
         return new PayPalPayment(new BigDecimal("2500"), "PHP", "Dorm Name",
                 paymentIntent);
+    }
+    protected void displayResultText(String result) {
+        Toast.makeText(
+                        getApplicationContext(),
+                        result, Toast.LENGTH_LONG)
+                .show();
+    }
+    @Override
+    public void onDestroy() {
+        // Stop service when done
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
     }
 
 }
