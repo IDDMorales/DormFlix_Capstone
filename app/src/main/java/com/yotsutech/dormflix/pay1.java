@@ -2,9 +2,11 @@ package com.yotsutech.dormflix;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -105,13 +107,43 @@ public class pay1 extends AppCompatActivity {
     private PayPalPayment getThingToBuy(String paymentIntent) {
         return new PayPalPayment(new BigDecimal("2500"), "PHP", "Dorm Name",
                 paymentIntent);
+
+
     }
     protected void displayResultText(String result) {
-        Toast.makeText(
-                        getApplicationContext(),
-                        result, Toast.LENGTH_LONG)
-                .show();
+        Toast.makeText(getApplication(), result, Toast.LENGTH_LONG).show();
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_PAYMENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                PaymentConfirmation confirm =
+                        data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if (confirm != null) {
+                    try {
+                        Log.i(TAG, confirm.toJSONObject().toString(4));
+                        Log.i(TAG, confirm.getPayment().toJSONObject().toString(4));
+                        //displaying result as toast
+                        displayResultText("Payment Confirmation received");
+
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i(TAG, "The user canceled.");
+            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(
+                        TAG,
+                        "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+            }
+        }
+    }
+
+
+
     @Override
     public void onDestroy() {
         // Stop service when done
