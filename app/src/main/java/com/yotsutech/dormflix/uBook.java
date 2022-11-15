@@ -5,6 +5,7 @@ public class uBook {
     String pNumber;
     String roomno;
     String date;
+
     String purl;
     String dornname;
 
@@ -13,8 +14,10 @@ public class uBook {
      this.pNumber = pNumber;
      this.roomno = roomno;
      this.date= date;
+
      this.dornname = dornname;
      this.purl=purl;
+
 
 
 
@@ -67,6 +70,7 @@ public class uBook {
     public void setDate(String date) {
         this.date = date;
     }
+
 
 
 

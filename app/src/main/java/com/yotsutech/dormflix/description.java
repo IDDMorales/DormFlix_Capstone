@@ -2,6 +2,7 @@ package com.yotsutech.dormflix;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -17,8 +18,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,9 +32,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+
 public class description extends AppCompatActivity {
     Button button;
-    DatabaseReference reference,ref;
+    DatabaseReference reference,ref,refer;
     FirebaseAuth mAuth;
     FirebaseUser user;
     StorageReference storageReference;
@@ -41,6 +52,7 @@ public class description extends AppCompatActivity {
     TextView Avail;
     ImageView dormPic;
     ImageButton bck;
+
 
 
     @Override
@@ -57,7 +69,9 @@ public class description extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dbookingbg));
 
         EditText ePick = dialog.findViewById(R.id.dpEpick);
+
         EditText date = dialog.findViewById(R.id.dpEpick);
+
         reference = FirebaseDatabase.getInstance().getReference("bookings");
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -77,6 +91,7 @@ public class description extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String day = date.getText().toString();
+
                 if(day.isEmpty()){
                     Toast.makeText(description.this, "No date selected", Toast.LENGTH_SHORT).show();
                 }
@@ -135,18 +150,49 @@ public class description extends AppCompatActivity {
         });
 
 
+        refer = FirebaseDatabase.getInstance().getReference("bookings/");
+        refer.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    if(task.getResult().exists()){
+                        button.setEnabled(false);
+                    }
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
         ePick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MaterialDatePicker materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                        .setTitleText("Select Date").build();
+
+                CalendarConstraints.Builder calendarConstraintBuilder = new CalendarConstraints.Builder();
+                calendarConstraintBuilder.setValidator(DateValidatorPointForward.now());
+
+                MaterialDatePicker.Builder<Pair<Long, Long>> materialDatePickerBuilder = MaterialDatePicker.Builder.dateRangePicker();
+                materialDatePickerBuilder.setTitleText("SELECT A DATE");
+                materialDatePickerBuilder.setCalendarConstraints(calendarConstraintBuilder.build());
+
+                MaterialDatePicker materialDatePicker = materialDatePickerBuilder.build();
                 materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
                     @Override
                     public void onPositiveButtonClick(Object selection) {
                         ePick.setText("" + materialDatePicker.getHeaderText());
+
                     }
                 });
-                materialDatePicker.show(getSupportFragmentManager(), "TAG");
+                materialDatePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
             }
         });
 
@@ -207,6 +253,9 @@ public class description extends AppCompatActivity {
                 }
             }
         });
+
+
+
 
     }
 }

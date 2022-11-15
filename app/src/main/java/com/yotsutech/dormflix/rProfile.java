@@ -66,6 +66,35 @@ public class rProfile extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        reference = FirebaseDatabase.getInstance().getReference("users/");
+        reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    if (task.getResult().exists()) {
+                        DataSnapshot dataSnapshot = task.getResult();
+
+                        String pFp = String.valueOf(dataSnapshot.child("url").getValue());
+                        Picasso.get()
+                                .load(pFp)
+                                .placeholder(R.drawable.ic_baseline_person_24)
+                                .error(R.drawable.ic_baseline_person_24)
+                                .into(imageView);
+                    } else {
+                        Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -169,10 +198,31 @@ public class rProfile extends AppCompatActivity {
         String email  = user.getEmail();
 
         if (name.isEmpty() && number.isEmpty()) {
-            nameEditText.setError("Full name is required");
-            nameEditText.requestFocus();
-            numberEditText.setError("Phone number is required");
-            numberEditText.requestFocus();
+            myRef = FirebaseDatabase.getInstance().getReference("users/");
+            myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        if (task.getResult().exists()) {
+                            DataSnapshot dataSnapshot = task.getResult();
+                            String Numb = String.valueOf(dataSnapshot.child("number").getValue());
+                            String Fname = String.valueOf(dataSnapshot.child("name").getValue());
+                            numberEditText.setText(Numb);
+                            nameEditText.setText(Fname);
+                        } else {
+                            Toast.makeText(getApplication(), "Failed to get Value", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplication(), "Failed to get Value", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
             return;
         }
         else if (name.isEmpty()) {
@@ -205,8 +255,29 @@ public class rProfile extends AppCompatActivity {
 
 
         else if (number.isEmpty()) {
-            numberEditText.setError("Phone number is required");
-            numberEditText.requestFocus();
+            myRef = FirebaseDatabase.getInstance().getReference("users/");
+            myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        if (task.getResult().exists()) {
+                            DataSnapshot dataSnapshot = task.getResult();
+                            String Numb = String.valueOf(dataSnapshot.child("number").getValue());
+                            numberEditText.setText(Numb);
+                        } else {
+                            Toast.makeText(getApplication(), "Failed to get Value", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplication(), "Failed to get Value", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplication(), "Failed", Toast.LENGTH_SHORT).show();
+                }
+            });
             return;
         }
 
