@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/green"
     tools:context=".realSplash">
-    
+
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@mipmap/ic_launcher_foreground"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:background="@drawable/dormflix_logo" />
 
 </RelativeLayout>

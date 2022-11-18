@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:cardCornerRadius="100dp"
-        app:cardElevation="8dp"
+        app:cardElevation="1dp"
         android:layout_below="@+id/header">
     <ImageView
         android:id="@+id/imageView"

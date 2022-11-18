@@ -16,33 +16,36 @@
         android:textColor="@color/dark"
         android:textSize="22sp" />
 
-
     <TextView
         android:id="@+id/comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/RatingBar"
         android:layout_marginTop="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:minLines="2"
-        android:layout_marginLeft="60dp"
         android:paddingTop="1dp"
         android:text="Additional Comments"
         android:textColor="@color/dark"
         android:textSize="16sp" />
 
-
     <EditText
         android:id="@+id/feedbox"
-        android:layout_width="297dp"
+        android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_below="@id/comment"
-        android:layout_marginLeft="60dp"
+        android:layout_centerInParent="true"
         android:background="@drawable/border"
         android:fontFamily="@font/poppins_regular"
-        android:hint=""
-        android:inputType="text|textMultiLine"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:lines="6"
+        android:minLines="4"
+        android:maxLines="6"
+        android:paddingTop="4dp"
         android:paddingLeft="8dp"
         android:textSize="16sp" />
 
@@ -51,8 +54,8 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginTop="34dp"
-        android:layout_marginRight="100dp"
-        android:layout_toLeftOf="@id/header"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentLeft="true"
         android:background="@drawable/back_arrow_1" />
 
     <Button
@@ -83,6 +86,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView5"
         android:layout_centerInParent="true" />
-
 
 </RelativeLayout>
