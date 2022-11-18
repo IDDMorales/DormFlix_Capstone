@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -108,7 +109,8 @@ public class sFeedback extends AppCompatActivity {
         ratingbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                if(b) ref.setValue(ratingBar);
+                Log.e("Rating Value",""+b);
+                ref.setValue(ratingBar);
             }
         });
     }
