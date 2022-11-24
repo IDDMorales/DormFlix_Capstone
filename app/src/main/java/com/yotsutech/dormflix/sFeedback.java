@@ -30,6 +30,7 @@ public class sFeedback extends AppCompatActivity {
     DatabaseReference myRef, reference;
     RatingBar ratingbar;
     FirebaseDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +41,11 @@ public class sFeedback extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
 
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(TextUtils.isEmpty(comment.getText().toString())){
-                    Toast.makeText(sFeedback.this,"Field must not be empty.", Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(comment.getText().toString())) {
+                    Toast.makeText(sFeedback.this, "Field must not be empty.", Toast.LENGTH_LONG).show();
                 }
                 ratingbars();
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -75,7 +75,7 @@ public class sFeedback extends AppCompatActivity {
 
                     }
                 });
-                Toast.makeText(sFeedback.this,"Thanks for your feedback!", Toast.LENGTH_LONG).show();
+                Toast.makeText(sFeedback.this, "Thanks for your feedback!", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplication(), eFeedback.class));
             }
         });
@@ -96,7 +96,7 @@ public class sFeedback extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot !=null && snapshot.getValue()!=null){
+                if (snapshot != null && snapshot.getValue() != null) {
                     float rating = Float.parseFloat(snapshot.getValue().toString());
                 }
             }
@@ -109,7 +109,7 @@ public class sFeedback extends AppCompatActivity {
         ratingbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                Log.e("Rating Value",""+b);
+                Log.e("Rating Value", "" + b);
                 ref.setValue(ratingBar);
             }
         });
